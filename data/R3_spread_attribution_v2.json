@@ -1,0 +1,62 @@
+[
+  {
+    "region": "Weddell",
+    "n": 47735,
+    "S_hi_total_mean": 0.8983652971091215,
+    "S_hi_total_median": 0.7165280368936829,
+    "S_hi_snow_mean": 0.5867040304266125,
+    "S_hi_retrack_mean": 0.6963512323712925,
+    "f_snow_hi_mean": 66.3321267824053,
+    "f_snow_hi_median": 60.63558765874657,
+    "f_retrack_hi_mean": 81.62827510007426,
+    "f_retrack_hi_median": 79.97029752562885,
+    "f_residual_hi_mean": -47.96040188247956,
+    "f_snow_hfi_mean": 33.000846404439386,
+    "f_retrack_hfi_mean": 100.70266953069739
+  },
+  {
+    "region": "Weddell_W",
+    "n": 11271,
+    "S_hi_total_mean": 1.5758319135954921,
+    "S_hi_total_median": 1.597369934382137,
+    "S_hi_snow_mean": 1.0981266994320822,
+    "S_hi_retrack_mean": 1.1044268992229587,
+    "f_snow_hi_mean": 71.39926895699821,
+    "f_snow_hi_median": 71.85589459788879,
+    "f_retrack_hi_mean": 70.19488847563902,
+    "f_retrack_hi_median": 69.67442606014318,
+    "f_residual_hi_mean": -41.59415743263725,
+    "f_snow_hfi_mean": 42.75748566547241,
+    "f_retrack_hfi_mean": 103.18838591761794
+  },
+  {
+    "region": "Weddell_E",
+    "n": 36464,
+    "S_hi_total_mean": 0.6889607821239886,
+    "S_hi_total_median": 0.6542637483959544,
+    "S_hi_snow_mean": 0.42862359760627866,
+    "S_hi_retrack_mean": 0.5702152944301689,
+    "f_snow_hi_mean": 64.76587624900696,
+    "f_snow_hi_median": 58.24980989346786,
+    "f_retrack_hi_mean": 85.16232788210613,
+    "f_retrack_hi_median": 82.5116432844701,
+    "f_residual_hi_mean": -49.92820413111308,
+    "f_snow_hfi_mean": 29.985075202401678,
+    "f_retrack_hfi_mean": 99.93433612248707
+  },
+  {
+    "region": "Ross",
+    "n": 34606,
+    "S_hi_total_mean": 0.6490945100756383,
+    "S_hi_total_median": 0.6446254383155069,
+    "S_hi_snow_mean": 0.3819711315962702,
+    "S_hi_retrack_mean": 0.5128376951289472,
+    "f_snow_hi_mean": 59.083566757843606,
+    "f_snow_hi_median": 53.544119803939125,
+    "f_retrack_hi_mean": 80.36404401747654,
+    "f_retrack_hi_median": 80.63862324156864,
+    "f_residual_hi_mean": -39.447610775320165,
+    "f_snow_hfi_mean": 32.60428335113296,
+    "f_retrack_hfi_mean": 107.84768953832693
+  }
+]

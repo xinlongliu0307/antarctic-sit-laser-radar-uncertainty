@@ -1,0 +1,158 @@
+Loaded 82,341 rows from collocation CSV
+
+======================================================================
+PHYSICAL PARAMETERS — v5 OPTION ONE FRAMING
+======================================================================
+  *** Reference baseline: AMSR2 climatology (CCI v4.0 / Cryo-TEMPO)
+  *** Improvement scenario: AMSR2 snow replaced by CRYO2ICE
+  *** Delta h_i = h_i_Imp - h_i_Base (positive = CRYO2ICE recovers
+      thickness above AMSR2 baseline)
+
+  rho_w  = 1024.0 kg/m^3 (fixed)
+  rho_s  = 330.0 kg/m^3 (Kacimi & Kwok 2020)
+  rho_i regional (per-segment):
+    FYI (Eastern Weddell, Ross): 916.7 kg/m^3 (Alexandrov 2010 FYI)
+    MYI (Western Weddell):       882.0 kg/m^3 (Alexandrov 2010 MYI)
+    Soft cap:                    940.0 kg/m^3 (Timco & Frederking 1996)
+
+  Per-segment rho_i assignment:
+    Segments at FYI (916.7): 71,070
+    Segments at MYI (882.0): 11,271
+
+  Weddell Sea aggregate composition:
+    Eastern Weddell (FYI): 36,464 segments ( 76.4%)
+    Western Weddell (MYI): 11,271 segments ( 23.6%)
+
+======================================================================
+SCENARIO Base_CCI: CCI v4.0 PUBLISHED BASELINE (AMSR2 snow)
+======================================================================
+  Valid segments: 40,745
+  h_i_Base_CCI - median: 0.946 m, mean: 1.220 m
+
+======================================================================
+SCENARIO Base_CT: CRYO-TEMPO PUBLISHED BASELINE (AMSR2 snow)
+======================================================================
+  Valid segments: 82,306
+  h_i_Base_CT - median: 0.902 m, mean: 1.106 m
+
+======================================================================
+SCENARIO Imp_CCI: CCI BASELINE WITH AMSR2 REPLACED BY CRYO2ICE
+======================================================================
+  Valid segments: 40,745
+  h_i_Imp_CCI - median: 1.663 m, mean: 1.681 m
+
+======================================================================
+SCENARIO Imp_CT: CRYO-TEMPO BASELINE WITH AMSR2 REPLACED BY CRYO2ICE
+======================================================================
+  Valid segments: 82,306
+  h_i_Imp_CT - median: 1.619 m, mean: 1.631 m
+
+  Per-sector breakdown (Scenarios Base):
+    Western_Weddell        CCI  n= 4,512  rho_i=882.0  h_i median=2.371 m  mean=2.492 m
+    Western_Weddell        CT   n=11,267  rho_i=882.0  h_i median=1.713 m  mean=1.828 m
+    Eastern_Weddell        CCI  n=19,142  rho_i=916.7  h_i median=0.766 m  mean=0.927 m
+    Eastern_Weddell        CT   n=36,460  rho_i=916.7  h_i median=0.746 m  mean=0.860 m
+    Ross                   CCI  n=17,091  rho_i=916.7  h_i median=1.000 m  mean=1.212 m
+    Ross                   CT   n=34,579  rho_i=916.7  h_i median=0.972 m  mean=1.131 m
+
+======================================================================
+SNOW DEPTH COMPARISON: AMSR2 BASELINE vs CRYO2ICE REPLACEMENT
+======================================================================
+
+  CCI v4.0 (n=40,745):
+    AMSR2 baseline snow - median: 0.201 m, mean: 0.222 m
+    CRYO2ICE replacement snow - median: 0.107 m, mean: 0.147 m
+    Difference (AMSR2 - CRYO2ICE) - median: 0.098 m, mean: 0.075 m
+    AMSR2-to-CRYO2ICE ratio - median: 1.68x, mean: 10.20x
+    (ratio > 1 indicates AMSR2 baseline is deeper than CRYO2ICE replacement)
+    Pooled Pearson r: 0.1197  (p = 6.03e-130)
+    Within-sector correlations:
+      Western_Weddell        n= 4,512  r=-0.0511  AMSR2 excess vs CRYO2ICE=  +75.1%
+      Eastern_Weddell        n=19,142  r=-0.0222  AMSR2 excess vs CRYO2ICE=  +94.9%
+      Ross                   n=17,091  r=-0.0527  AMSR2 excess vs CRYO2ICE= +102.5%
+
+  Cryo-TEMPO (n=82,306):
+    AMSR2 baseline snow - median: 0.205 m, mean: 0.229 m
+    CRYO2ICE replacement snow - median: 0.105 m, mean: 0.142 m
+    Difference (AMSR2 - CRYO2ICE) - median: 0.106 m, mean: 0.088 m
+    AMSR2-to-CRYO2ICE ratio - median: 1.79x, mean: 9.16x
+    (ratio > 1 indicates AMSR2 baseline is deeper than CRYO2ICE replacement)
+    Pooled Pearson r: 0.1454  (p = 0.00e+00)
+    Within-sector correlations:
+      Western_Weddell        n=11,267  r=-0.0272  AMSR2 excess vs CRYO2ICE= +116.2%
+      Eastern_Weddell        n=36,460  r= 0.0310  AMSR2 excess vs CRYO2ICE= +105.1%
+      Ross                   n=34,579  r=-0.0011  AMSR2 excess vs CRYO2ICE= +103.9%
+
+======================================================================
+SEA-ICE THICKNESS IMPROVEMENT (Delta h_i = h_i_Imp - h_i_Base)
+  *** Positive = CRYO2ICE recovers thickness above AMSR2 baseline
+  *** Negative = CRYO2ICE yields lower thickness than AMSR2 (rare)
+======================================================================
+
+  CCI IMPROVEMENT (n=40,745, 2022-2023):
+    Delta h_i - median: +0.624 m, mean: +0.462 m
+    |Delta h_i| - median: 0.838 m, mean: 0.972 m
+    Relative improvement vs Base - median: +45.1%, mean: -438.5%
+
+  CRYO-TEMPO IMPROVEMENT (n=82,306, 2022-2025):
+    Delta h_i - median: +0.670 m, mean: +0.525 m
+    |Delta h_i| - median: 0.840 m, mean: 0.961 m
+    Relative improvement vs Base - median: +53.9%, mean: -175.8%
+
+======================================================================
+PER-SECTOR IMPROVEMENT BREAKDOWN
+======================================================================
+
+  CCI IMPROVEMENT (2022-2023):
+  Sector                  Year       n  AMSR2_h_s   C2I_h_s  AMSR2_xs%  h_i_Base   h_i_Imp     Delta    Delta%
+  ------------------------------------------------------------------------------------------------------------
+  Western_Weddell         2022   2,352      0.406     0.218      +86.1     2.069     2.774    +0.776     +37.5
+  Western_Weddell         2023   2,160      0.384     0.230      +67.0     3.001     3.026    +0.718     +23.9
+  Eastern_Weddell         2022   6,258      0.184     0.102      +80.1     0.762     1.464    +0.544     +71.3
+  Eastern_Weddell         2023  12,884      0.207     0.104      +98.9     0.769     1.545    +0.706     +91.9
+  Ross                    2022   8,756      0.200     0.096     +107.6     0.998     1.724    +0.657     +65.8
+  Ross                    2023   8,335      0.179     0.092      +94.4     1.002     1.578    +0.507     +50.6
+
+  CCI sector summary (pooled across 2022-2023):
+    Western_Weddell        n= 4,512  rho_i=882.0  Delta h_i=+0.755 m  AMSR2 excess vs CRYO2ICE=+75.1%
+    Eastern_Weddell        n=19,142  rho_i=916.7  Delta h_i=+0.649 m  AMSR2 excess vs CRYO2ICE=+94.9%
+    Ross                   n=17,091  rho_i=916.7  Delta h_i=+0.581 m  AMSR2 excess vs CRYO2ICE=+102.5%
+
+  CRYO-TEMPO IMPROVEMENT (2022-2025):
+  Sector                  Year       n  AMSR2_h_s   C2I_h_s  AMSR2_xs%  h_i_Base   h_i_Imp     Delta    Delta%
+  ------------------------------------------------------------------------------------------------------------
+  Western_Weddell         2022   2,352      0.406     0.218      +86.1     2.069     2.774    +0.776     +37.5
+  Western_Weddell         2023   2,160      0.384     0.230      +67.0     3.001     3.026    +0.718     +23.9
+  Western_Weddell         2024   2,988      0.439     0.200     +119.8     1.181     2.324    +1.097     +92.9
+  Western_Weddell         2025   3,767      0.453     0.160     +183.1     1.441     2.646    +1.361     +94.4
+  Eastern_Weddell         2022   6,258      0.184     0.102      +80.1     0.762     1.464    +0.544     +71.3
+  Eastern_Weddell         2023  12,884      0.207     0.104      +98.9     0.769     1.545    +0.706     +91.9
+  Eastern_Weddell         2024  10,836      0.210     0.096     +118.1     0.812     1.559    +0.736     +90.6
+  Eastern_Weddell         2025   6,482      0.161     0.084      +91.9     0.631     1.238    +0.573     +90.7
+  Ross                    2022   8,746      0.200     0.096     +107.8     0.999     1.725    +0.658     +65.9
+  Ross                    2023   8,335      0.179     0.092      +94.4     1.001     1.578    +0.507     +50.6
+  Ross                    2024  10,943      0.206     0.100     +105.5     1.062     1.655    +0.615     +57.9
+  Ross                    2025   6,555      0.170     0.085     +101.1     0.794     1.402    +0.560     +70.5
+
+  Cryo-TEMPO sector summary (pooled across 2022-2025):
+    Western_Weddell        n=11,267  rho_i=882.0  Delta h_i=+1.112 m  AMSR2 excess vs CRYO2ICE=+116.2%
+    Eastern_Weddell        n=36,460  rho_i=916.7  Delta h_i=+0.660 m  AMSR2 excess vs CRYO2ICE=+105.1%
+    Ross                   n=34,579  rho_i=916.7  Delta h_i=+0.586 m  AMSR2 excess vs CRYO2ICE=+103.9%
+
+======================================================================
+WEDDELL AGGREGATE: SAMPLE-WEIGHTED UNION OF E + W WEDDELL
+======================================================================
+  CCI Weddell aggregate     n=23,654  Delta h_i=+0.662 m  AMSR2 excess vs CRYO2ICE=+89.9%
+  Cryo-TEMPO Weddell agg.   n=47,727  Delta h_i=+0.740 m  AMSR2 excess vs CRYO2ICE=+98.8%
+
+======================================================================
+NEGATIVE THICKNESS DIAGNOSTICS
+======================================================================
+  Scenario Base_CCI (AMSR2 baseline)               :  2,632 / 40,745 negative (6.5%)
+  Scenario Base_CT  (AMSR2 baseline)               :  5,138 / 82,306 negative (6.2%)
+  Scenario Imp_CCI  (CRYO2ICE replaces AMSR2)      :  2,903 / 40,745 negative (7.1%)
+  Scenario Imp_CT   (CRYO2ICE replaces AMSR2)      :  5,742 / 82,306 negative (7.0%)
+
+Output CSV saved: /g/data/gv90/xl1657/phd/M3_workspace/output/L2P_collocation/R3_SIT_snow_swap_all_winters_v5.csv
+  Columns saved: 23
+Total elapsed: 2.9 s
