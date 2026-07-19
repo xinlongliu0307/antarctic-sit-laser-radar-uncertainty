@@ -5,6 +5,7 @@ Analysis pipeline and derived data products for:
 > Liu, X., Fraser, A. D., Corney, S.P., Tilling, R.L., and Heil, P.
 > **Bulk sea-ice density and Ku-band penetration co-dominate the uncertainty in Antarctic sea-ice thickness from coupled laser–radar altimetry retrieval.**
 > Under review at *Remote Sensing of Environment*, 13 July 2026.
+> https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7117568
 
 This repository will be archived on Zenodo: https://zenodo.org/records/20409432. The citation above will be updated on acceptance.
 
