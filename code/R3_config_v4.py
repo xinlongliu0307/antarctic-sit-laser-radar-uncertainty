@@ -1,6 +1,14 @@
 """
 R3_config_v4.py — Shared configuration (v4, Alex 29 April 2026 refinement)
 ==========================================================================
+Additions for the RSE-D-26-03119 resubmission (September 2026):
+  - Melsheimer et al. (2023) ice-type product paths (Step 12 download)
+  - get_regional_rho_i_params() gains an observed-ice-type mode (Step 13)
+  - Two-component mixture prior sample_rho_i_mixture() (Step 02 v7, primary)
+  - REGIONS_V6 adds the observed ice-type strata MYI_obs / FYI_obs
+  Longitude rule (v5) and binary class at 50 % (v6) retained as sensitivity
+  cases; see Reviewer 3 major comment 7.
+
 Change from previous version (sample-weighted Weddell aggregate):
   - Added per-segment regional rho_i parameterisation lookup
   - Western Weddell sub-sector: Alexandrov MYI parameters (882, 23)
@@ -45,6 +53,9 @@ M3_BASE = '/g/data/gv90/xl1657/phd/M3_workspace'
 M3_OUTPUT = f'{M3_BASE}/output'
 M3_FIGURES = f'{M3_BASE}/figures'
 M3_CODE = f'{M3_BASE}/code'
+M3_DATA = f'{M3_BASE}/data'
+MELSHEIMER_DIR = f'{M3_DATA}/melsheimer'      # raw/YYYY/ECICE-...nc, final/YYYY/MultiYearIce-...nc
+MELSHEIMER_YEARS = [2022, 2023, 2024, 2025]   # matchups span Aug 2022 - Sep 2025
 
 # ── IS2/CS2 freeboard ──
 FB_SIGMA_RAW = 0.030
@@ -163,39 +174,164 @@ def derive_month(dates):
     return (dates // 100) % 100
 
 
-def get_regional_rho_i_params(subsectors):
+def get_regional_rho_i_params(subsectors, icetype=None, unclassified_as='FYI'):
     """
-    Return per-segment Alexandrov parameters based on sub-sector membership.
+    Return per-segment Alexandrov (2010) rho_i parameters.
 
-    *** Alex's 29 April 2026 refinement ***
+    Two modes:
 
-    Western Weddell sub-sector:  Alexandrov MYI parameters (882, 23 kg/m³)
-    All other regions:           Alexandrov FYI parameters (916.7, 35.7 kg/m³)
+    icetype is None  (v4/v5 behaviour, longitude rule, Alex 29 April 2026):
+        Western Weddell sub-sector:  MYI parameters (882.0, 23.0 kg/m^3)
+        All other segments:          FYI parameters (916.7, 35.7 kg/m^3)
 
-    This produces the correct sample-weighted Weddell Sea aggregate when
-    the eastern and western Weddell segments are combined, rather than
-    applying a uniform FYI treatment that would be inconsistent with the
-    differentiated regional physics.
+    icetype given  (v6 onward, observed ice type):
+        Per-matchup class from Melsheimer et al. (2023), collocated on the
+        matchup date by R3_Step13_icetype_collocation.py, 'MYI' where the
+        drift-corrected MYI concentration is >= MYI_THRESHOLD_PCT.
+        'MYI' -> MYI parameters; 'FYI' -> FYI parameters;
+        'unclassified' -> the class named by unclassified_as (default FYI).
+
+    Step 13 on the d070 dataset (65,165 matchups, Aug 2022 - Sep 2025):
+    72.5 % of western-Weddell segments are MYI by observation, 2.3 % of
+    eastern-Weddell and 2.4 % of Ross segments; the longitude rule therefore
+    misassigns ~6 % of all segments. The western-Weddell fraction ranges
+    from 54 % (2024) to 91 % (2025) and varies between tracks within a month
+    (monthly cells hold 1-7 tracks), and 23.7 % of western-Weddell matchups
+    lie within 40-60 % MYI concentration, so the binary class is threshold-
+    sensitive there. The mixture prior (sample_rho_i_mixture) is therefore
+    the primary treatment; this function's two modes are the sensitivity
+    cases for Reviewer 3 comment 7.
 
     Parameters
     ----------
-    subsectors : np.ndarray of str
-        Per-segment sub-sector labels from assign_subsector_vec()
+    subsectors : array of str, per-segment labels from assign_subsector_vec()
+    icetype    : array of str or None, per-segment 'MYI' | 'FYI' | 'unclassified'
+    unclassified_as : 'FYI' or 'MYI', prior for unclassified segments
 
     Returns
     -------
-    mu_arr : np.ndarray
-        Per-segment Alexandrov mu (kg/m³)
-    sigma_arr : np.ndarray
-        Per-segment Alexandrov sigma (kg/m³)
+    mu_arr, sigma_arr : np.ndarray, per-segment mu and sigma (kg/m^3)
     """
+    subsectors = np.asarray(subsectors)
     n = len(subsectors)
     mu_arr = np.full(n, RHO_I_FYI_MU, dtype=np.float64)
     sigma_arr = np.full(n, RHO_I_FYI_SIGMA, dtype=np.float64)
-    ww_mask = (subsectors == 'Weddell_W')
-    mu_arr[ww_mask] = RHO_I_MYI_MU
-    sigma_arr[ww_mask] = RHO_I_MYI_SIGMA
+
+    if icetype is None:
+        myi_mask = (subsectors == 'Weddell_W')
+    else:
+        icetype = np.asarray(icetype)
+        assert len(icetype) == n, "icetype and subsectors must have equal length"
+        myi_mask = (icetype == 'MYI') | \
+                   ((icetype == 'unclassified') & (unclassified_as == 'MYI'))
+
+    mu_arr[myi_mask] = RHO_I_MYI_MU
+    sigma_arr[myi_mask] = RHO_I_MYI_SIGMA
     return mu_arr, sigma_arr
+
+
+def get_icetype_rho_i_params(icetype, unclassified_as='FYI'):
+    """Convenience wrapper used by R3_Step02_v6: observed-ice-type mode only."""
+    icetype = np.asarray(icetype)
+    return get_regional_rho_i_params(np.full(len(icetype), '', dtype='U12'),
+                                     icetype=icetype, unclassified_as=unclassified_as)
+
+def sample_rho_i_mixture(myi_frac, n_per_seg, rng):
+    """
+    Two-component Gaussian mixture prior for rho_i, one draw set per segment.
+    Each draw comes from the Alexandrov MYI Gaussian with probability
+    f = myi_frac/100 (drift-corrected Melsheimer et al. 2023 MYI concentration
+    on the matchup date) and from the FYI Gaussian otherwise. 940 cap applied.
+
+    Returns samples of shape (n_per_seg, n_segments).
+    """
+    f = np.clip(np.asarray(myi_frac, dtype=float) / 100.0, 0.0, 1.0)
+    n_seg = len(f)
+    is_myi = rng.random((n_per_seg, n_seg)) < f[np.newaxis, :]
+    mu = np.where(is_myi, RHO_I_MYI_MU, RHO_I_FYI_MU)
+    sigma = np.where(is_myi, RHO_I_MYI_SIGMA, RHO_I_FYI_SIGMA)
+    return np.minimum(rng.normal(mu, sigma), RHO_I_UPPER_CAP)
+
+
+def mixture_rho_i_central(myi_frac):
+    """
+    Expected rho_i of the mixture prior: f*mu_MYI + (1-f)*mu_FYI, using the
+    NOMINAL component means (as v5/v6 use RHO_I_FYI_MU as the unperturbed
+    value). The realised capped FYI mean is ~911 kg/m^3; see Methods.
+    """
+    f = np.clip(np.asarray(myi_frac, dtype=float) / 100.0, 0.0, 1.0)
+    return f * RHO_I_MYI_MU + (1.0 - f) * RHO_I_FYI_MU
+
+
+# ── Observed ice-type reporting strata (Step 02 v6/v7) ─────────────────
+MYI_THRESHOLD_PCT = 50.0      # binary class used for REPORTING strata and for
+                              # the v6 sensitivity prior; must equal
+                              # MYI_THRESHOLD in R3_Step13_icetype_collocation.py
+
+REGIONS_V6 = REGIONS + ['MYI_obs', 'FYI_obs']
+REGION_LABELS.update({'MYI_obs': 'Observed MYI (all sectors)',
+                      'FYI_obs': 'Observed FYI (all sectors)'})
+REGION_COLORS.update({'MYI_obs': '#882255', 'FYI_obs': '#44AA99'})
+
+
+def get_region_mask_v6(sectors, subsectors, icetype, region):
+    """Region masks extended with the two observed ice-type strata."""
+    if region == 'MYI_obs':
+        return np.asarray(icetype) == 'MYI'
+    if region == 'FYI_obs':
+        return np.asarray(icetype) == 'FYI'
+    return get_region_mask(sectors, subsectors, region)
+
+
+# ── Sweep samplers (Step 03 v7 / Step 03b v7) ────────────────────────────
+# Both keep the mixture prior and take the swept quantity as an argument, so
+# the sweeps never modify module globals.
+
+def sample_rho_i_mixture_scaled(myi_frac, n_per_seg, rng, sigma_scale=1.0):
+    """
+    Mixture prior with both component spreads multiplied by sigma_scale.
+    sigma_scale = sigma_FYI_target / RHO_I_FYI_SIGMA reproduces the density
+    sweep of the original analysis (15-40 kg/m^3 on the first year component)
+    while keeping the MYI:FYI spread ratio of Alexandrov et al. (2010).
+    sigma_scale = 1.0 is identical to sample_rho_i_mixture().
+    """
+    f = np.clip(np.asarray(myi_frac, dtype=float) / 100.0, 0.0, 1.0)
+    is_myi = rng.random((n_per_seg, len(f))) < f[np.newaxis, :]
+    mu = np.where(is_myi, RHO_I_MYI_MU, RHO_I_FYI_MU)
+    sigma = np.where(is_myi, RHO_I_MYI_SIGMA, RHO_I_FYI_SIGMA) * sigma_scale
+    return np.minimum(rng.normal(mu, sigma), RHO_I_UPPER_CAP)
+
+
+def sample_delta_sigma(n, rng, sigma):
+    """sample_delta() with an explicit spread, for the penetration sweep.
+    sigma = DELTA_SIGMA is identical to sample_delta()."""
+    return np.clip(rng.normal(DELTA_BASELINE, sigma, size=n),
+                   DELTA_CLIP[0], DELTA_CLIP[1])
+
+
+def replay_step02_subsample(n_total, n_sub=5000, n_mc=None, batch=10000, seed=42):
+    """
+    Reproduce the Experiment B subsample of R3_Step02_v7_mixture.py.
+
+    Step 02 draws idx_sub from the seed-42 generator AFTER Experiment A has
+    consumed it. This function replays Experiment A's draw calls (same shapes,
+    same order; values are irrelevant to stream consumption) and then makes
+    the same rng.choice, so sweeps run on exactly the matchups whose shares
+    appear in R3_ExpB_d070_v7.json. Takes ~1-2 min for 65k matchups.
+    """
+    n_mc = N_MC if n_mc is None else n_mc
+    rng = np.random.default_rng(seed)
+    for i0 in range(0, n_total, batch):
+        nb = min(batch, n_total - i0)
+        rng.normal(size=(n_mc, nb))        # is2_mc
+        rng.normal(size=(n_mc, nb))        # cs2_mc
+        rng.normal(size=n_mc)              # sample_delta
+        rng.normal(size=(n_mc, 1))         # rho_s_mc
+        rng.random((n_mc, nb))             # mixture: component selection
+        rng.normal(size=(n_mc, nb))        # mixture: component draw
+    idx = rng.choice(n_total, n_sub, replace=False)
+    idx.sort()
+    return idx
 
 
 def sample_density(shape, central, sigma, n, rng=None):
@@ -339,3 +475,14 @@ if __name__ == '__main__':
     d = sample_delta(500000, rng)
     print(f"\n  δ:   mean={d.mean():.3f}, std={d.std():.3f}, "
           f"min={d.min():.3f}, max={d.max():.3f}")
+
+    # Ice-type modes and mixture prior
+    subs = np.array(['Weddell_W', 'Ross'])
+    print(f"\n  rho_i prior modes on subsectors {list(subs)}:")
+    print(f"    longitude rule (v5): mu = {get_regional_rho_i_params(subs)[0]}")
+    print(f"    observed class (v6): mu = {get_regional_rho_i_params(subs, np.array(['FYI', 'MYI']))[0]}")
+    fr = np.array([0.0, 50.0, 100.0])
+    s = sample_rho_i_mixture(fr, 200000, rng)
+    print(f"    mixture (v7) at MYI conc {fr}: realised mean = {s.mean(axis=0).round(1)}, "
+          f"std = {s.std(axis=0).round(1)}, nominal central = {mixture_rho_i_central(fr)}")
+    print(f"    REGIONS_V6 = {REGIONS_V6}")
