@@ -19,7 +19,7 @@ Snow depth retrieved from the difference between ICESat-2 laser and CryoSat-2 Ku
 
 Within this error model:
 
-- bulk sea-ice density and Ku-band penetration account for **40.9 %** and **35.1 %** of the propagated sea-ice thickness variance; freeboards and snow density for 14.4 %; parameter interactions for 9.5 % (shares are not renormalised);
+- bulk sea-ice density and Ku-band penetration account for **40.9 %** and **35.1 %** of the propagated sea-ice thickness variance; freeboards and snow density for 14.5 %; parameter interactions for 9.5 % (shares are not renormalised);
 - the two leading terms exchange rank at σ_δ ≈ 0.20–0.25, and σ_δ ≈ 0.10 would leave density as the single dominant term;
 - at the 25 km segment scale of the CRISTAL requirements, the median sea-ice thickness uncertainty is 0.452 m (requirement 0.15 m, 3,443 segments); freeboard noise alone gives 0.068 m;
 - replacing the AMSR-E/AMSR2 snow climatology in the CCI v4.0 and Cryo-TEMPO level-2 pre-processed products with CRYO2ICE snow increases sea-ice thickness by a per-matchup median of 0.352 m (CCI) and 0.406 m (Cryo-TEMPO) at δ = 0.70, and by 0.10–0.16 m at the empirical optimum δ* ≈ 0.55.
