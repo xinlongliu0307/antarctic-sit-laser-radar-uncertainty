@@ -1,0 +1,166 @@
+{
+  "alpha": -2.0,
+  "n_mc": 10000,
+  "results": {
+    "gaussian": {
+      "all": {
+        "region": "all",
+        "n": 5000,
+        "frac_fb_is2": 0.7375471744744709,
+        "frac_fb_cs2": 7.968501225455945,
+        "frac_rho_s": 5.8410502995062235,
+        "frac_rho_i": 41.06988713181685,
+        "frac_delta": 35.2454944886251,
+        "frac_fb_combined": 8.706048399930417,
+        "frac_interaction": 9.137519680121414
+      },
+      "Weddell": {
+        "region": "Weddell",
+        "n": 2844,
+        "frac_fb_is2": 0.6358768010303707,
+        "frac_fb_cs2": 6.869996303203855,
+        "frac_rho_s": 5.947267764715243,
+        "frac_rho_i": 41.818169388152675,
+        "frac_delta": 35.88642152959528,
+        "frac_fb_combined": 7.505873104234226,
+        "frac_interaction": 8.842268213302575
+      },
+      "Weddell_W": {
+        "region": "Weddell_W",
+        "n": 740,
+        "frac_fb_is2": 0.2506607399906616,
+        "frac_fb_cs2": 2.70531768788148,
+        "frac_rho_s": 6.088360787608985,
+        "frac_rho_i": 47.04469582251608,
+        "frac_delta": 36.73779125007262,
+        "frac_fb_combined": 2.9559784278721417,
+        "frac_interaction": 7.1731737119301755
+      },
+      "Weddell_E": {
+        "region": "Weddell_E",
+        "n": 2104,
+        "frac_fb_is2": 1.0239857758518431,
+        "frac_fb_cs2": 11.065951018827873,
+        "frac_rho_s": 5.805115154769662,
+        "frac_rho_i": 36.552392538549825,
+        "frac_delta": 35.02865815255258,
+        "frac_fb_combined": 12.089936794679716,
+        "frac_interaction": 10.523897359448213
+      },
+      "Ross": {
+        "region": "Ross",
+        "n": 2156,
+        "frac_fb_is2": 0.9140650465534217,
+        "frac_fb_cs2": 9.875701374089257,
+        "frac_rho_s": 5.65663786645241,
+        "frac_rho_i": 39.77073589307905,
+        "frac_delta": 34.1327310198048,
+        "frac_fb_combined": 10.789766420642678,
+        "frac_interaction": 9.650128800021065
+      },
+      "MYI_obs": {
+        "region": "MYI_obs",
+        "n": 654,
+        "frac_fb_is2": 0.27751906606788057,
+        "frac_fb_cs2": 2.996117307753963,
+        "frac_rho_s": 6.420619851728608,
+        "frac_rho_i": 43.41086375474682,
+        "frac_delta": 38.74267640132941,
+        "frac_fb_combined": 3.2736363738218435,
+        "frac_interaction": 8.152203618373306
+      },
+      "FYI_obs": {
+        "region": "FYI_obs",
+        "n": 4346,
+        "frac_fb_is2": 0.8815209181770524,
+        "frac_fb_cs2": 9.524694672499248,
+        "frac_rho_s": 5.659663995833371,
+        "frac_rho_i": 40.33723805632695,
+        "frac_delta": 34.15099099377349,
+        "frac_fb_combined": 10.4062155906763,
+        "frac_interaction": 9.445891363389876
+      }
+    },
+    "skewnorm": {
+      "all": {
+        "region": "all",
+        "n": 5000,
+        "frac_fb_is2": 0.7193560861277878,
+        "frac_fb_cs2": 7.771963682096487,
+        "frac_rho_s": 5.696984854321041,
+        "frac_rho_i": 40.942702465511026,
+        "frac_delta": 34.376188868246366,
+        "frac_fb_combined": 8.491319768224274,
+        "frac_interaction": 10.49280404369729
+      },
+      "Weddell": {
+        "region": "Weddell",
+        "n": 2844,
+        "frac_fb_is2": 0.6248056642075827,
+        "frac_fb_cs2": 6.750384030949902,
+        "frac_rho_s": 5.843720953386024,
+        "frac_rho_i": 41.59363700857926,
+        "frac_delta": 35.261609487088606,
+        "frac_fb_combined": 7.375189695157484,
+        "frac_interaction": 9.92584285578863
+      },
+      "Weddell_W": {
+        "region": "Weddell_W",
+        "n": 740,
+        "frac_fb_is2": 0.2498266187248526,
+        "frac_fb_cs2": 2.696315228963043,
+        "frac_rho_s": 6.068100609620795,
+        "frac_rho_i": 46.47780484182943,
+        "frac_delta": 36.61553926541129,
+        "frac_fb_combined": 2.9461418476878958,
+        "frac_interaction": 7.892413435450578
+      },
+      "Weddell_E": {
+        "region": "Weddell_E",
+        "n": 2104,
+        "frac_fb_is2": 0.9920344762662913,
+        "frac_fb_cs2": 10.720661538700593,
+        "frac_rho_s": 5.623978875523621,
+        "frac_rho_i": 36.81041732495451,
+        "frac_delta": 33.935663330645966,
+        "frac_fb_combined": 11.712696014966884,
+        "frac_interaction": 11.91724445390902
+      },
+      "Ross": {
+        "region": "Ross",
+        "n": 2156,
+        "frac_fb_is2": 0.88023870062533,
+        "frac_fb_cs2": 9.51023625514386,
+        "frac_rho_s": 5.447305510968474,
+        "frac_rho_i": 39.83510242493201,
+        "frac_delta": 32.86959819211392,
+        "frac_fb_combined": 10.390474955769191,
+        "frac_interaction": 11.4575189162164
+      },
+      "MYI_obs": {
+        "region": "MYI_obs",
+        "n": 654,
+        "frac_fb_is2": 0.27911510369128206,
+        "frac_fb_cs2": 3.0133482534149363,
+        "frac_rho_s": 6.457545425867036,
+        "frac_rho_i": 42.37445539774083,
+        "frac_delta": 38.96548908963914,
+        "frac_fb_combined": 3.2924633571062185,
+        "frac_interaction": 8.91004672964678
+      },
+      "FYI_obs": {
+        "region": "FYI_obs",
+        "n": 4346,
+        "frac_fb_is2": 0.8517176573342106,
+        "frac_fb_cs2": 9.202675133405446,
+        "frac_rho_s": 5.468316928653755,
+        "frac_rho_i": 40.51223580009404,
+        "frac_delta": 32.99638323388759,
+        "frac_fb_combined": 10.054392790739657,
+        "frac_interaction": 10.96867124662495
+      }
+    }
+  },
+  "max_abs_change_pt": 1.8073901161953358,
+  "note": "Both mixture components skew-normal with matched mean/std; shares un-renormalised."
+}

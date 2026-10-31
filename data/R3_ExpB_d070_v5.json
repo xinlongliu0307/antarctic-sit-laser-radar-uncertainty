@@ -1,0 +1,46 @@
+{
+  "fb_is2": {
+    "Weddell": 0.788186487282733,
+    "Weddell_W": 0.31204590853642067,
+    "Weddell_E": 1.132297241884647,
+    "Ross": 0.9051483618105738,
+    "all": 0.8362868340695261
+  },
+  "fb_cs2": {
+    "Weddell": 8.51582030257506,
+    "Weddell_W": 3.371071568564374,
+    "Weddell_E": 12.233972982943243,
+    "Ross": 9.778225962837393,
+    "all": 9.03498221143943
+  },
+  "rho_s": {
+    "Weddell": 6.326410523500682,
+    "Weddell_W": 7.332040538618701,
+    "Weddell_E": 5.599633351381161,
+    "Ross": 5.692278164556276,
+    "all": 6.065624805957373
+  },
+  "rho_i": {
+    "Weddell": 36.82033600249073,
+    "Weddell_W": 36.46335433119766,
+    "Weddell_E": 37.07832962406181,
+    "Ross": 39.75880448448153,
+    "all": 38.02877553525638
+  },
+  "delta": {
+    "Weddell": 38.174207686188325,
+    "Weddell_W": 44.24228197728535,
+    "Weddell_E": 33.78875994974913,
+    "Ross": 34.347788221161025,
+    "all": 36.60060001306798
+  },
+  "recovery_pct": 90.5662693997907,
+  "interaction_pct": 9.433730600209302,
+  "pairwise_interaction_pct": {
+    "delta_rho_i": 1.9545538755773124,
+    "delta_rho_s": 2.7532420839122222,
+    "rho_s_rho_i": 0.32934539122965195
+  },
+  "higher_order_pct": 4.396589249490114,
+  "note": "Shares unnormalised: divided by the Experiment A simultaneous variance, not by their own sum."
+}

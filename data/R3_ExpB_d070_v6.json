@@ -1,0 +1,65 @@
+{
+  "fb_is2": {
+    "Weddell": 0.7311958230666717,
+    "Weddell_W": 0.295880680188278,
+    "Weddell_E": 1.145174659802238,
+    "Ross": 0.9047011238491762,
+    "MYI_obs": 0.33908315165422426,
+    "FYI_obs": 0.89844512210398,
+    "all": 0.7978691681315356
+  },
+  "fb_cs2": {
+    "Weddell": 7.89979780717829,
+    "Weddell_W": 3.1960620282927557,
+    "Weddell_E": 12.37298716874953,
+    "Ross": 9.773651153600586,
+    "MYI_obs": 3.663575345380971,
+    "FYI_obs": 9.706396549277295,
+    "all": 8.619868434435816
+  },
+  "rho_s": {
+    "Weddell": 6.228182605667699,
+    "Weddell_W": 6.89339954278304,
+    "Weddell_E": 5.595570259625939,
+    "Ross": 5.704173223896665,
+    "MYI_obs": 7.253533375202145,
+    "FYI_obs": 5.757897680237133,
+    "all": 6.026820121809977
+  },
+  "rho_i": {
+    "Weddell": 38.98231667259823,
+    "Weddell_W": 41.252443843811704,
+    "Weddell_E": 36.8234563137173,
+    "Ross": 39.64269947978961,
+    "MYI_obs": 36.74672977487701,
+    "FYI_obs": 39.781804705672876,
+    "all": 39.23608373666026
+  },
+  "delta": {
+    "Weddell": 37.581490390652604,
+    "Weddell_W": 41.595477377345894,
+    "Weddell_E": 33.764242838832004,
+    "Ross": 34.419564224949085,
+    "MYI_obs": 43.768561729447406,
+    "FYI_obs": 34.74374308538667,
+    "all": 36.36644858291073
+  },
+  "n_sub_by_region": {
+    "Weddell": 2919,
+    "Weddell_W": 755,
+    "Weddell_E": 2164,
+    "Ross": 2081,
+    "MYI_obs": 633,
+    "FYI_obs": 4367
+  },
+  "recovery_pct": 91.04709004394832,
+  "interaction_pct": 8.952909956051684,
+  "pairwise_interaction_pct": {
+    "delta_rho_i": 1.723401728430969,
+    "delta_rho_s": 2.735628286015817,
+    "rho_s_rho_i": 0.3034146737714408
+  },
+  "higher_order_pct": 4.190465267833457,
+  "n_prior_changed_vs_v5": 3993,
+  "note": "Shares unnormalised: divided by the Experiment A simultaneous variance. rho_i prior per matchup from observed ice type (Melsheimer et al. 2023, MYI at >= 50 %)."
+}

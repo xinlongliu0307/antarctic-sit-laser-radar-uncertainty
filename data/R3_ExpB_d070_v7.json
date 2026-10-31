@@ -1,0 +1,65 @@
+{
+  "fb_is2": {
+    "Weddell": 0.6337632383820024,
+    "Weddell_W": 0.25003292754001566,
+    "Weddell_E": 1.0197384123520563,
+    "Ross": 0.9082409345621169,
+    "MYI_obs": 0.27698495076930163,
+    "FYI_obs": 0.8769153965222981,
+    "all": 0.7342725296592169
+  },
+  "fb_cs2": {
+    "Weddell": 6.847161427710126,
+    "Weddell_W": 2.698541867593597,
+    "Weddell_E": 11.020050853458194,
+    "Ross": 9.812776759465544,
+    "MYI_obs": 2.9903509576682468,
+    "FYI_obs": 9.474932736435575,
+    "all": 7.933121778382778
+  },
+  "rho_s": {
+    "Weddell": 5.927499905615841,
+    "Weddell_W": 6.073111695522894,
+    "Weddell_E": 5.7810362712520496,
+    "Ross": 5.6205956913876305,
+    "MYI_obs": 6.40826267808372,
+    "FYI_obs": 5.630094981015951,
+    "all": 5.815116548092227
+  },
+  "rho_i": {
+    "Weddell": 41.67917183281064,
+    "Weddell_W": 46.92686625823999,
+    "Weddell_E": 36.40077783690129,
+    "Ross": 39.51733027310563,
+    "MYI_obs": 43.3273148772428,
+    "FYI_obs": 40.12649544145451,
+    "all": 40.88754043235982
+  },
+  "delta": {
+    "Weddell": 35.767140247426084,
+    "Weddell_W": 36.6457766698999,
+    "Weddell_E": 34.88336370843797,
+    "Ross": 33.9152488517928,
+    "MYI_obs": 38.66811195259787,
+    "FYI_obs": 33.972568536279915,
+    "all": 35.089007582047934
+  },
+  "n_sub_by_region": {
+    "Weddell": 2844,
+    "Weddell_W": 740,
+    "Weddell_E": 2104,
+    "Ross": 2156,
+    "MYI_obs": 654,
+    "FYI_obs": 4346
+  },
+  "recovery_pct": 90.459058870542,
+  "interaction_pct": 9.540941129458005,
+  "pairwise_interaction_pct": {
+    "delta_rho_i": 1.9080197476643117,
+    "delta_rho_s": 2.6395341148264113,
+    "rho_s_rho_i": 0.38944897032763254
+  },
+  "higher_order_pct": 4.60393829663965,
+  "myi_weight_mean": 0.1342730605381371,
+  "note": "Shares unnormalised: divided by the Experiment A simultaneous variance. rho_i prior per matchup = two-component Gaussian mixture, MYI weight = Melsheimer et al. (2023) drift-corrected MYI concentration on the matchup date."
+}

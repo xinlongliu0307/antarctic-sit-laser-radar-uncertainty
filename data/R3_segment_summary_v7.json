@@ -1,0 +1,1691 @@
+{
+  "mrd_reference": "ESA-EOPSM-CPTM-MRD-3350 Issue 3.0, 29 May 2020",
+  "mrd_snow_m": 0.05,
+  "mrd_thickness_m": 0.15,
+  "mrd_min_freeboard_m": 0.03,
+  "mrd_min_thickness_m": 0.35,
+  "n_mc": 10000,
+  "method": "Parameters drawn once per segment per realisation (common-mode); freeboards drawn per matchup (independent). rho_i from the per-matchup mixture prior with segment-mean MYI weight; rho_s unbounded.",
+  "configurations": {
+    "5km_F0_none_full": {
+      "seg_len_km": 5.0,
+      "filter": "F0_none",
+      "variant": "full",
+      "n_segments": 7511,
+      "median_matchups_per_seg": 7.0,
+      "median_hs_sigma_m": 0.046279097900397574,
+      "median_hi_sigma_m": 0.4810108163613737,
+      "frac_meeting_mrd380": 0.5567833843695913,
+      "frac_meeting_mrd330": 0.0,
+      "runtime_s": 254.5,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 4353,
+          "median_hs_sigma_m": 0.049237081637558085,
+          "median_hi_sigma_m": 0.4983959561521693,
+          "frac_meeting_mrd380": 0.5116011945784517,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_W": {
+          "n_segments": 1092,
+          "median_hs_sigma_m": 0.09790535583238451,
+          "median_hi_sigma_m": 0.9057288747671944,
+          "frac_meeting_mrd380": 0.17124542124542125,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_E": {
+          "n_segments": 3261,
+          "median_hs_sigma_m": 0.04249743660234098,
+          "median_hi_sigma_m": 0.443200563307002,
+          "frac_meeting_mrd380": 0.62557497700092,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Ross": {
+          "n_segments": 3158,
+          "median_hs_sigma_m": 0.04342602929343184,
+          "median_hi_sigma_m": 0.4643087519747884,
+          "frac_meeting_mrd380": 0.6190626979100696,
+          "frac_meeting_mrd330": 0.0
+        },
+        "MYI_obs": {
+          "n_segments": 908,
+          "median_hs_sigma_m": 0.09585263914266108,
+          "median_hi_sigma_m": 0.8654584135715107,
+          "frac_meeting_mrd380": 0.20814977973568283,
+          "frac_meeting_mrd330": 0.0
+        },
+        "FYI_obs": {
+          "n_segments": 6603,
+          "median_hs_sigma_m": 0.04376454064982106,
+          "median_hi_sigma_m": 0.4603931885860754,
+          "frac_meeting_mrd380": 0.6047251249432076,
+          "frac_meeting_mrd330": 0.0
+        }
+      }
+    },
+    "5km_F0_none_freeboard-only": {
+      "seg_len_km": 5.0,
+      "filter": "F0_none",
+      "variant": "freeboard-only",
+      "n_segments": 7511,
+      "median_matchups_per_seg": 7.0,
+      "median_hs_sigma_m": 0.01809860402420748,
+      "median_hi_sigma_m": 0.08199432488185643,
+      "frac_meeting_mrd380": 1.0,
+      "frac_meeting_mrd330": 1.0,
+      "runtime_s": 86.3,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 4353,
+          "median_hs_sigma_m": 0.01802430594979845,
+          "median_hi_sigma_m": 0.0809556749334995,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_W": {
+          "n_segments": 1092,
+          "median_hs_sigma_m": 0.016963263696411088,
+          "median_hi_sigma_m": 0.06794862070558347,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_E": {
+          "n_segments": 3261,
+          "median_hs_sigma_m": 0.018113700446419936,
+          "median_hi_sigma_m": 0.08630429548447087,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Ross": {
+          "n_segments": 3158,
+          "median_hs_sigma_m": 0.01816880552967361,
+          "median_hi_sigma_m": 0.08653310482476043,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "MYI_obs": {
+          "n_segments": 908,
+          "median_hs_sigma_m": 0.01685012793675239,
+          "median_hi_sigma_m": 0.06416362626648295,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "FYI_obs": {
+          "n_segments": 6603,
+          "median_hs_sigma_m": 0.018135381325346134,
+          "median_hi_sigma_m": 0.08638557605769479,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        }
+      }
+    },
+    "5km_F1_mrd280_full": {
+      "seg_len_km": 5.0,
+      "filter": "F1_mrd280",
+      "variant": "full",
+      "n_segments": 6890,
+      "median_matchups_per_seg": 7.0,
+      "median_hs_sigma_m": 0.041276805292224855,
+      "median_hi_sigma_m": 0.4752533027181096,
+      "frac_meeting_mrd380": 0.6362844702467344,
+      "frac_meeting_mrd330": 0.0,
+      "runtime_s": 75.5,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 4012,
+          "median_hs_sigma_m": 0.043601522494350176,
+          "median_hi_sigma_m": 0.4916663059581982,
+          "frac_meeting_mrd380": 0.5805084745762712,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_W": {
+          "n_segments": 1022,
+          "median_hs_sigma_m": 0.08839930874624272,
+          "median_hi_sigma_m": 0.888715730310105,
+          "frac_meeting_mrd380": 0.20645792563600782,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_E": {
+          "n_segments": 2990,
+          "median_hs_sigma_m": 0.03809429215559541,
+          "median_hi_sigma_m": 0.4379254890452452,
+          "frac_meeting_mrd380": 0.7083612040133779,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Ross": {
+          "n_segments": 2878,
+          "median_hs_sigma_m": 0.03900232801495372,
+          "median_hi_sigma_m": 0.4596232453820115,
+          "frac_meeting_mrd380": 0.7140375260597637,
+          "frac_meeting_mrd330": 0.0
+        },
+        "MYI_obs": {
+          "n_segments": 845,
+          "median_hs_sigma_m": 0.08627730227487324,
+          "median_hi_sigma_m": 0.8332508082512357,
+          "frac_meeting_mrd380": 0.25207100591715975,
+          "frac_meeting_mrd330": 0.0
+        },
+        "FYI_obs": {
+          "n_segments": 6045,
+          "median_hs_sigma_m": 0.039155021148398125,
+          "median_hi_sigma_m": 0.45562550729213375,
+          "frac_meeting_mrd380": 0.6899917287014061,
+          "frac_meeting_mrd330": 0.0
+        }
+      }
+    },
+    "5km_F1_mrd280_freeboard-only": {
+      "seg_len_km": 5.0,
+      "filter": "F1_mrd280",
+      "variant": "freeboard-only",
+      "n_segments": 6890,
+      "median_matchups_per_seg": 7.0,
+      "median_hs_sigma_m": 0.018276342706069166,
+      "median_hi_sigma_m": 0.08669461384799036,
+      "frac_meeting_mrd380": 1.0,
+      "frac_meeting_mrd330": 1.0,
+      "runtime_s": 107.0,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 4012,
+          "median_hs_sigma_m": 0.01822661288955929,
+          "median_hi_sigma_m": 0.08600305229779137,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_W": {
+          "n_segments": 1022,
+          "median_hs_sigma_m": 0.017182360489925122,
+          "median_hi_sigma_m": 0.07035719930453083,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_E": {
+          "n_segments": 2990,
+          "median_hs_sigma_m": 0.01838467197558241,
+          "median_hi_sigma_m": 0.08755208226245836,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Ross": {
+          "n_segments": 2878,
+          "median_hs_sigma_m": 0.01924165980259486,
+          "median_hi_sigma_m": 0.08755336896198834,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "MYI_obs": {
+          "n_segments": 845,
+          "median_hs_sigma_m": 0.016966322216983395,
+          "median_hi_sigma_m": 0.06527160360339139,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "FYI_obs": {
+          "n_segments": 6045,
+          "median_hs_sigma_m": 0.018440499912612204,
+          "median_hi_sigma_m": 0.08756087535229705,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        }
+      }
+    },
+    "5km_F2_mrd280_330_full": {
+      "seg_len_km": 5.0,
+      "filter": "F2_mrd280_330",
+      "variant": "full",
+      "n_segments": 6888,
+      "median_matchups_per_seg": 7.0,
+      "median_hs_sigma_m": 0.04131290952708748,
+      "median_hi_sigma_m": 0.4750258189175713,
+      "frac_meeting_mrd380": 0.6385017421602788,
+      "frac_meeting_mrd330": 0.0,
+      "runtime_s": 101.6,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 4011,
+          "median_hs_sigma_m": 0.043434938738333255,
+          "median_hi_sigma_m": 0.4894145460349256,
+          "frac_meeting_mrd380": 0.5841436050860135,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_W": {
+          "n_segments": 1021,
+          "median_hs_sigma_m": 0.08891719406900946,
+          "median_hi_sigma_m": 0.8850805127177599,
+          "frac_meeting_mrd380": 0.20666013712047013,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_E": {
+          "n_segments": 2990,
+          "median_hs_sigma_m": 0.038058983622652004,
+          "median_hi_sigma_m": 0.4372578020401423,
+          "frac_meeting_mrd380": 0.7130434782608696,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Ross": {
+          "n_segments": 2877,
+          "median_hs_sigma_m": 0.038996380832473074,
+          "median_hi_sigma_m": 0.45956262286566435,
+          "frac_meeting_mrd380": 0.7142857142857143,
+          "frac_meeting_mrd330": 0.0
+        },
+        "MYI_obs": {
+          "n_segments": 844,
+          "median_hs_sigma_m": 0.08650558199853334,
+          "median_hi_sigma_m": 0.8343591050283984,
+          "frac_meeting_mrd380": 0.25355450236966826,
+          "frac_meeting_mrd330": 0.0
+        },
+        "FYI_obs": {
+          "n_segments": 6044,
+          "median_hs_sigma_m": 0.0391390687859158,
+          "median_hi_sigma_m": 0.45577987664120234,
+          "frac_meeting_mrd380": 0.6922567835870285,
+          "frac_meeting_mrd330": 0.0
+        }
+      }
+    },
+    "5km_F2_mrd280_330_freeboard-only": {
+      "seg_len_km": 5.0,
+      "filter": "F2_mrd280_330",
+      "variant": "freeboard-only",
+      "n_segments": 6888,
+      "median_matchups_per_seg": 7.0,
+      "median_hs_sigma_m": 0.018279767166676775,
+      "median_hi_sigma_m": 0.0866475973897865,
+      "frac_meeting_mrd380": 1.0,
+      "frac_meeting_mrd330": 1.0,
+      "runtime_s": 92.8,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 4011,
+          "median_hs_sigma_m": 0.018227903972228805,
+          "median_hi_sigma_m": 0.08590404506107294,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_W": {
+          "n_segments": 1021,
+          "median_hs_sigma_m": 0.017153065185034955,
+          "median_hi_sigma_m": 0.07025731723829522,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_E": {
+          "n_segments": 2990,
+          "median_hs_sigma_m": 0.018431077388398727,
+          "median_hi_sigma_m": 0.08749836835590744,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Ross": {
+          "n_segments": 2877,
+          "median_hs_sigma_m": 0.019239176273429442,
+          "median_hi_sigma_m": 0.08744344907067055,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "MYI_obs": {
+          "n_segments": 844,
+          "median_hs_sigma_m": 0.016967661993060074,
+          "median_hi_sigma_m": 0.06541650750971759,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "FYI_obs": {
+          "n_segments": 6044,
+          "median_hs_sigma_m": 0.01848716253878145,
+          "median_hi_sigma_m": 0.08747191613082402,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        }
+      }
+    },
+    "10km_F0_none_full": {
+      "seg_len_km": 10.0,
+      "filter": "F0_none",
+      "variant": "full",
+      "n_segments": 5220,
+      "median_matchups_per_seg": 10.0,
+      "median_hs_sigma_m": 0.044210762094823615,
+      "median_hi_sigma_m": 0.46701256615859293,
+      "frac_meeting_mrd380": 0.5881226053639846,
+      "frac_meeting_mrd330": 0.0,
+      "runtime_s": 85.3,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 3002,
+          "median_hs_sigma_m": 0.04691135049052242,
+          "median_hi_sigma_m": 0.484747104968547,
+          "frac_meeting_mrd380": 0.5389740173217855,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_W": {
+          "n_segments": 734,
+          "median_hs_sigma_m": 0.09755838745742751,
+          "median_hi_sigma_m": 0.9104374326946668,
+          "frac_meeting_mrd380": 0.17574931880108993,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_E": {
+          "n_segments": 2268,
+          "median_hs_sigma_m": 0.04082860080442907,
+          "median_hi_sigma_m": 0.4339053921450275,
+          "frac_meeting_mrd380": 0.6565255731922398,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Ross": {
+          "n_segments": 2218,
+          "median_hs_sigma_m": 0.04170785539823556,
+          "median_hi_sigma_m": 0.4529493662314664,
+          "frac_meeting_mrd380": 0.654643823264202,
+          "frac_meeting_mrd330": 0.0
+        },
+        "MYI_obs": {
+          "n_segments": 599,
+          "median_hs_sigma_m": 0.09550074994857462,
+          "median_hi_sigma_m": 0.8575194664810982,
+          "frac_meeting_mrd380": 0.2020033388981636,
+          "frac_meeting_mrd330": 0.0
+        },
+        "FYI_obs": {
+          "n_segments": 4621,
+          "median_hs_sigma_m": 0.04201914624377543,
+          "median_hi_sigma_m": 0.4499291282568818,
+          "frac_meeting_mrd380": 0.6381735555074659,
+          "frac_meeting_mrd330": 0.0
+        }
+      }
+    },
+    "10km_F0_none_freeboard-only": {
+      "seg_len_km": 10.0,
+      "filter": "F0_none",
+      "variant": "freeboard-only",
+      "n_segments": 5220,
+      "median_matchups_per_seg": 10.0,
+      "median_hs_sigma_m": 0.015131120385945641,
+      "median_hi_sigma_m": 0.06960524597402656,
+      "frac_meeting_mrd380": 1.0,
+      "frac_meeting_mrd330": 1.0,
+      "runtime_s": 80.4,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 3002,
+          "median_hs_sigma_m": 0.015049618777979994,
+          "median_hi_sigma_m": 0.06848176790657123,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_W": {
+          "n_segments": 734,
+          "median_hs_sigma_m": 0.013948624492043897,
+          "median_hi_sigma_m": 0.055872273322517055,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_E": {
+          "n_segments": 2268,
+          "median_hs_sigma_m": 0.015153271652720774,
+          "median_hi_sigma_m": 0.07216972568028304,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Ross": {
+          "n_segments": 2218,
+          "median_hs_sigma_m": 0.015263441824063868,
+          "median_hi_sigma_m": 0.072613143683294,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "MYI_obs": {
+          "n_segments": 599,
+          "median_hs_sigma_m": 0.01338517032505147,
+          "median_hi_sigma_m": 0.052372646275406144,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "FYI_obs": {
+          "n_segments": 4621,
+          "median_hs_sigma_m": 0.015226991561967253,
+          "median_hi_sigma_m": 0.07236149456679136,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        }
+      }
+    },
+    "10km_F1_mrd280_full": {
+      "seg_len_km": 10.0,
+      "filter": "F1_mrd280",
+      "variant": "full",
+      "n_segments": 4929,
+      "median_matchups_per_seg": 9.0,
+      "median_hs_sigma_m": 0.039413901142019994,
+      "median_hi_sigma_m": 0.46266482487947075,
+      "frac_meeting_mrd380": 0.667681071211199,
+      "frac_meeting_mrd330": 0.0,
+      "runtime_s": 73.8,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 2838,
+          "median_hs_sigma_m": 0.04204598157980931,
+          "median_hi_sigma_m": 0.47965537359458443,
+          "frac_meeting_mrd380": 0.6116983791402396,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_W": {
+          "n_segments": 701,
+          "median_hs_sigma_m": 0.09014662011276285,
+          "median_hi_sigma_m": 0.8925025519800204,
+          "frac_meeting_mrd380": 0.20827389443651925,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_E": {
+          "n_segments": 2137,
+          "median_hs_sigma_m": 0.035759028371085105,
+          "median_hi_sigma_m": 0.4273871777407764,
+          "frac_meeting_mrd380": 0.7440336920917173,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Ross": {
+          "n_segments": 2091,
+          "median_hs_sigma_m": 0.03741434185003048,
+          "median_hi_sigma_m": 0.4472019684450048,
+          "frac_meeting_mrd380": 0.743663318986131,
+          "frac_meeting_mrd330": 0.0
+        },
+        "MYI_obs": {
+          "n_segments": 567,
+          "median_hs_sigma_m": 0.08911220011607887,
+          "median_hi_sigma_m": 0.841966273637656,
+          "frac_meeting_mrd380": 0.24514991181657847,
+          "frac_meeting_mrd330": 0.0
+        },
+        "FYI_obs": {
+          "n_segments": 4362,
+          "median_hs_sigma_m": 0.03725498471120327,
+          "median_hi_sigma_m": 0.44425632881797805,
+          "frac_meeting_mrd380": 0.7226043099495644,
+          "frac_meeting_mrd330": 0.0
+        }
+      }
+    },
+    "10km_F1_mrd280_freeboard-only": {
+      "seg_len_km": 10.0,
+      "filter": "F1_mrd280",
+      "variant": "freeboard-only",
+      "n_segments": 4929,
+      "median_matchups_per_seg": 9.0,
+      "median_hs_sigma_m": 0.015946774621134273,
+      "median_hi_sigma_m": 0.07319616110336603,
+      "frac_meeting_mrd380": 1.0,
+      "frac_meeting_mrd330": 1.0,
+      "runtime_s": 63.4,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 2838,
+          "median_hs_sigma_m": 0.015874687059768453,
+          "median_hi_sigma_m": 0.07228319504989722,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_W": {
+          "n_segments": 701,
+          "median_hs_sigma_m": 0.014716296937924154,
+          "median_hi_sigma_m": 0.05843124521136915,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_E": {
+          "n_segments": 2137,
+          "median_hs_sigma_m": 0.016012528265270765,
+          "median_hi_sigma_m": 0.0763043973642938,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Ross": {
+          "n_segments": 2091,
+          "median_hs_sigma_m": 0.01601542252870226,
+          "median_hi_sigma_m": 0.07634327067694284,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "MYI_obs": {
+          "n_segments": 567,
+          "median_hs_sigma_m": 0.013937664158014205,
+          "median_hi_sigma_m": 0.05372274426877291,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "FYI_obs": {
+          "n_segments": 4362,
+          "median_hs_sigma_m": 0.016022165231961594,
+          "median_hi_sigma_m": 0.07630901484936622,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        }
+      }
+    },
+    "10km_F2_mrd280_330_full": {
+      "seg_len_km": 10.0,
+      "filter": "F2_mrd280_330",
+      "variant": "full",
+      "n_segments": 4928,
+      "median_matchups_per_seg": 9.0,
+      "median_hs_sigma_m": 0.039448638821064363,
+      "median_hi_sigma_m": 0.46202895702237445,
+      "frac_meeting_mrd380": 0.666801948051948,
+      "frac_meeting_mrd330": 0.0,
+      "runtime_s": 55.8,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 2838,
+          "median_hs_sigma_m": 0.041846804655297484,
+          "median_hi_sigma_m": 0.47989202105351875,
+          "frac_meeting_mrd380": 0.6092318534179,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_W": {
+          "n_segments": 701,
+          "median_hs_sigma_m": 0.09007418139000556,
+          "median_hi_sigma_m": 0.8881807048069906,
+          "frac_meeting_mrd380": 0.20684736091298145,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_E": {
+          "n_segments": 2137,
+          "median_hs_sigma_m": 0.03561910024045588,
+          "median_hi_sigma_m": 0.427580369407654,
+          "frac_meeting_mrd380": 0.7412260177819373,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Ross": {
+          "n_segments": 2090,
+          "median_hs_sigma_m": 0.03735520891394259,
+          "median_hi_sigma_m": 0.4479957910701736,
+          "frac_meeting_mrd380": 0.744976076555024,
+          "frac_meeting_mrd330": 0.0
+        },
+        "MYI_obs": {
+          "n_segments": 567,
+          "median_hs_sigma_m": 0.08919546595556599,
+          "median_hi_sigma_m": 0.8419136376847235,
+          "frac_meeting_mrd380": 0.24338624338624337,
+          "frac_meeting_mrd330": 0.0
+        },
+        "FYI_obs": {
+          "n_segments": 4361,
+          "median_hs_sigma_m": 0.03735560556826554,
+          "median_hi_sigma_m": 0.4453294331072274,
+          "frac_meeting_mrd380": 0.7218527860582435,
+          "frac_meeting_mrd330": 0.0
+        }
+      }
+    },
+    "10km_F2_mrd280_330_freeboard-only": {
+      "seg_len_km": 10.0,
+      "filter": "F2_mrd280_330",
+      "variant": "freeboard-only",
+      "n_segments": 4928,
+      "median_matchups_per_seg": 9.0,
+      "median_hs_sigma_m": 0.01595939454729121,
+      "median_hi_sigma_m": 0.07302363410057583,
+      "frac_meeting_mrd380": 1.0,
+      "frac_meeting_mrd330": 1.0,
+      "runtime_s": 52.2,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 2838,
+          "median_hs_sigma_m": 0.01588024296541326,
+          "median_hi_sigma_m": 0.07218019827291196,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_W": {
+          "n_segments": 701,
+          "median_hs_sigma_m": 0.014670596815760216,
+          "median_hi_sigma_m": 0.05858581448148623,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_E": {
+          "n_segments": 2137,
+          "median_hs_sigma_m": 0.016001943944575752,
+          "median_hi_sigma_m": 0.07626093506438039,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Ross": {
+          "n_segments": 2090,
+          "median_hs_sigma_m": 0.01602101967397434,
+          "median_hi_sigma_m": 0.07663681366369332,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "MYI_obs": {
+          "n_segments": 567,
+          "median_hs_sigma_m": 0.013865701064686391,
+          "median_hi_sigma_m": 0.05372555742722209,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "FYI_obs": {
+          "n_segments": 4361,
+          "median_hs_sigma_m": 0.01602746094424171,
+          "median_hi_sigma_m": 0.0763838365673301,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        }
+      }
+    },
+    "25km_F0_none_full": {
+      "seg_len_km": 25.0,
+      "filter": "F0_none",
+      "variant": "full",
+      "n_segments": 3663,
+      "median_matchups_per_seg": 11.0,
+      "median_hs_sigma_m": 0.0429312760446114,
+      "median_hi_sigma_m": 0.4583634657893975,
+      "frac_meeting_mrd380": 0.6117936117936118,
+      "frac_meeting_mrd330": 0.0,
+      "runtime_s": 116.5,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 2044,
+          "median_hs_sigma_m": 0.0454036148952091,
+          "median_hi_sigma_m": 0.4718353712138488,
+          "frac_meeting_mrd380": 0.5640900195694716,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_W": {
+          "n_segments": 470,
+          "median_hs_sigma_m": 0.09998508711924772,
+          "median_hi_sigma_m": 0.9030345750261428,
+          "frac_meeting_mrd380": 0.1702127659574468,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_E": {
+          "n_segments": 1574,
+          "median_hs_sigma_m": 0.0399386252744308,
+          "median_hi_sigma_m": 0.42746894134596813,
+          "frac_meeting_mrd380": 0.681702668360864,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Ross": {
+          "n_segments": 1619,
+          "median_hs_sigma_m": 0.04063956652420465,
+          "median_hi_sigma_m": 0.4437125798778155,
+          "frac_meeting_mrd380": 0.6720197652872143,
+          "frac_meeting_mrd330": 0.0
+        },
+        "MYI_obs": {
+          "n_segments": 369,
+          "median_hs_sigma_m": 0.09986516965602557,
+          "median_hi_sigma_m": 0.8584250751847791,
+          "frac_meeting_mrd380": 0.19241192411924118,
+          "frac_meeting_mrd330": 0.0
+        },
+        "FYI_obs": {
+          "n_segments": 3294,
+          "median_hs_sigma_m": 0.04087761338569316,
+          "median_hi_sigma_m": 0.44252424922403855,
+          "frac_meeting_mrd380": 0.6587735276259866,
+          "frac_meeting_mrd330": 0.0
+        }
+      }
+    },
+    "25km_F0_none_freeboard-only": {
+      "seg_len_km": 25.0,
+      "filter": "F0_none",
+      "variant": "freeboard-only",
+      "n_segments": 3663,
+      "median_matchups_per_seg": 11.0,
+      "median_hs_sigma_m": 0.014343798511728702,
+      "median_hi_sigma_m": 0.06608621889150129,
+      "frac_meeting_mrd380": 1.0,
+      "frac_meeting_mrd330": 1.0,
+      "runtime_s": 139.6,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 2044,
+          "median_hs_sigma_m": 0.013768592277935176,
+          "median_hi_sigma_m": 0.06322137841867553,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_W": {
+          "n_segments": 470,
+          "median_hs_sigma_m": 0.01239272853853382,
+          "median_hi_sigma_m": 0.04981123079449733,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_E": {
+          "n_segments": 1574,
+          "median_hs_sigma_m": 0.013963158202778006,
+          "median_hi_sigma_m": 0.06635090088146543,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Ross": {
+          "n_segments": 1619,
+          "median_hs_sigma_m": 0.01465203701626387,
+          "median_hi_sigma_m": 0.06989657715895299,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "MYI_obs": {
+          "n_segments": 369,
+          "median_hs_sigma_m": 0.011638637549400623,
+          "median_hi_sigma_m": 0.04423676291912218,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "FYI_obs": {
+          "n_segments": 3294,
+          "median_hs_sigma_m": 0.01449725167500133,
+          "median_hi_sigma_m": 0.06882301350012437,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        }
+      }
+    },
+    "25km_F1_mrd280_full": {
+      "seg_len_km": 25.0,
+      "filter": "F1_mrd280",
+      "variant": "full",
+      "n_segments": 3444,
+      "median_matchups_per_seg": 11.0,
+      "median_hs_sigma_m": 0.038076194040478836,
+      "median_hi_sigma_m": 0.4525881648513336,
+      "frac_meeting_mrd380": 0.6913472706155633,
+      "frac_meeting_mrd330": 0.0,
+      "runtime_s": 65.6,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 1926,
+          "median_hs_sigma_m": 0.04007413144507867,
+          "median_hi_sigma_m": 0.4662417919035333,
+          "frac_meeting_mrd380": 0.6407061266874351,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_W": {
+          "n_segments": 445,
+          "median_hs_sigma_m": 0.08870674130076123,
+          "median_hi_sigma_m": 0.8864276794655852,
+          "frac_meeting_mrd380": 0.20224719101123595,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_E": {
+          "n_segments": 1481,
+          "median_hs_sigma_m": 0.03462080069823866,
+          "median_hi_sigma_m": 0.41994770711431184,
+          "frac_meeting_mrd380": 0.7724510465901417,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Ross": {
+          "n_segments": 1518,
+          "median_hs_sigma_m": 0.03631364784389439,
+          "median_hi_sigma_m": 0.4408031899107762,
+          "frac_meeting_mrd380": 0.7555994729907773,
+          "frac_meeting_mrd330": 0.0
+        },
+        "MYI_obs": {
+          "n_segments": 347,
+          "median_hs_sigma_m": 0.08968232475862861,
+          "median_hi_sigma_m": 0.8364743052407735,
+          "frac_meeting_mrd380": 0.23919308357348704,
+          "frac_meeting_mrd330": 0.0
+        },
+        "FYI_obs": {
+          "n_segments": 3097,
+          "median_hs_sigma_m": 0.036145867899675936,
+          "median_hi_sigma_m": 0.4373211003303499,
+          "frac_meeting_mrd380": 0.7420083952211818,
+          "frac_meeting_mrd330": 0.0
+        }
+      }
+    },
+    "25km_F1_mrd280_freeboard-only": {
+      "seg_len_km": 25.0,
+      "filter": "F1_mrd280",
+      "variant": "freeboard-only",
+      "n_segments": 3444,
+      "median_matchups_per_seg": 11.0,
+      "median_hs_sigma_m": 0.014508150818552439,
+      "median_hi_sigma_m": 0.06806503819064817,
+      "frac_meeting_mrd380": 1.0,
+      "frac_meeting_mrd330": 1.0,
+      "runtime_s": 57.4,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 1926,
+          "median_hs_sigma_m": 0.013982283823392328,
+          "median_hi_sigma_m": 0.06475569283753035,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_W": {
+          "n_segments": 445,
+          "median_hs_sigma_m": 0.01244208402270132,
+          "median_hi_sigma_m": 0.049746224619326776,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_E": {
+          "n_segments": 1481,
+          "median_hs_sigma_m": 0.014477486254655232,
+          "median_hi_sigma_m": 0.06897153597355449,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Ross": {
+          "n_segments": 1518,
+          "median_hs_sigma_m": 0.015213206513602008,
+          "median_hi_sigma_m": 0.07247790113397712,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "MYI_obs": {
+          "n_segments": 347,
+          "median_hs_sigma_m": 0.011949100569076346,
+          "median_hi_sigma_m": 0.04554335790675745,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "FYI_obs": {
+          "n_segments": 3097,
+          "median_hs_sigma_m": 0.015125736329404353,
+          "median_hi_sigma_m": 0.07011434607465819,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        }
+      }
+    },
+    "25km_F2_mrd280_330_full": {
+      "seg_len_km": 25.0,
+      "filter": "F2_mrd280_330",
+      "variant": "full",
+      "n_segments": 3443,
+      "median_matchups_per_seg": 11.0,
+      "median_hs_sigma_m": 0.03824928999128938,
+      "median_hi_sigma_m": 0.4522921186883732,
+      "frac_meeting_mrd380": 0.6915480685448736,
+      "frac_meeting_mrd330": 0.0,
+      "runtime_s": 61.6,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 1926,
+          "median_hs_sigma_m": 0.04009857379118007,
+          "median_hi_sigma_m": 0.4668737419185758,
+          "frac_meeting_mrd380": 0.6396677050882659,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_W": {
+          "n_segments": 445,
+          "median_hs_sigma_m": 0.08910126779723442,
+          "median_hi_sigma_m": 0.881390297769375,
+          "frac_meeting_mrd380": 0.20674157303370785,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_E": {
+          "n_segments": 1481,
+          "median_hs_sigma_m": 0.034656893542682504,
+          "median_hi_sigma_m": 0.41940194905306954,
+          "frac_meeting_mrd380": 0.7697501688048616,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Ross": {
+          "n_segments": 1517,
+          "median_hs_sigma_m": 0.03630035302082775,
+          "median_hi_sigma_m": 0.44116401035109115,
+          "frac_meeting_mrd380": 0.7574159525379037,
+          "frac_meeting_mrd330": 0.0
+        },
+        "MYI_obs": {
+          "n_segments": 347,
+          "median_hs_sigma_m": 0.08983020688169704,
+          "median_hi_sigma_m": 0.8370140208160401,
+          "frac_meeting_mrd380": 0.23919308357348704,
+          "frac_meeting_mrd330": 0.0
+        },
+        "FYI_obs": {
+          "n_segments": 3096,
+          "median_hs_sigma_m": 0.03617230616260559,
+          "median_hi_sigma_m": 0.4370224683888645,
+          "frac_meeting_mrd380": 0.7422480620155039,
+          "frac_meeting_mrd330": 0.0
+        }
+      }
+    },
+    "25km_F2_mrd280_330_freeboard-only": {
+      "seg_len_km": 25.0,
+      "filter": "F2_mrd280_330",
+      "variant": "freeboard-only",
+      "n_segments": 3443,
+      "median_matchups_per_seg": 11.0,
+      "median_hs_sigma_m": 0.014505667964038212,
+      "median_hi_sigma_m": 0.06812711065430865,
+      "frac_meeting_mrd380": 1.0,
+      "frac_meeting_mrd330": 1.0,
+      "runtime_s": 57.6,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 1926,
+          "median_hs_sigma_m": 0.013996956734766712,
+          "median_hi_sigma_m": 0.06485747669737685,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_W": {
+          "n_segments": 445,
+          "median_hs_sigma_m": 0.012501392004296294,
+          "median_hi_sigma_m": 0.049895305158345116,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_E": {
+          "n_segments": 1481,
+          "median_hs_sigma_m": 0.014500862301505288,
+          "median_hi_sigma_m": 0.06901924926863476,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Ross": {
+          "n_segments": 1517,
+          "median_hs_sigma_m": 0.015204173309764512,
+          "median_hi_sigma_m": 0.07246257480023272,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "MYI_obs": {
+          "n_segments": 347,
+          "median_hs_sigma_m": 0.011962495927675483,
+          "median_hi_sigma_m": 0.04557040505206584,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "FYI_obs": {
+          "n_segments": 3096,
+          "median_hs_sigma_m": 0.015059007829118967,
+          "median_hi_sigma_m": 0.06993781895273099,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        }
+      }
+    },
+    "50km_F0_none_full": {
+      "seg_len_km": 50.0,
+      "filter": "F0_none",
+      "variant": "full",
+      "n_segments": 3254,
+      "median_matchups_per_seg": 11.0,
+      "median_hs_sigma_m": 0.04274931953746944,
+      "median_hi_sigma_m": 0.4519097622903328,
+      "frac_meeting_mrd380": 0.6173939766441303,
+      "frac_meeting_mrd330": 0.0,
+      "runtime_s": 68.1,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 1794,
+          "median_hs_sigma_m": 0.04475909821195938,
+          "median_hi_sigma_m": 0.464501834218228,
+          "frac_meeting_mrd380": 0.5702341137123745,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_W": {
+          "n_segments": 392,
+          "median_hs_sigma_m": 0.09872099523056008,
+          "median_hi_sigma_m": 0.9204564064994245,
+          "frac_meeting_mrd380": 0.1683673469387755,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_E": {
+          "n_segments": 1402,
+          "median_hs_sigma_m": 0.0396467728105701,
+          "median_hi_sigma_m": 0.4251399995619912,
+          "frac_meeting_mrd380": 0.6825962910128388,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Ross": {
+          "n_segments": 1460,
+          "median_hs_sigma_m": 0.040036408767433515,
+          "median_hi_sigma_m": 0.43791067106801773,
+          "frac_meeting_mrd380": 0.6753424657534246,
+          "frac_meeting_mrd330": 0.0
+        },
+        "MYI_obs": {
+          "n_segments": 301,
+          "median_hs_sigma_m": 0.09894842637229548,
+          "median_hi_sigma_m": 0.8614814572030023,
+          "frac_meeting_mrd380": 0.19269102990033224,
+          "frac_meeting_mrd330": 0.0
+        },
+        "FYI_obs": {
+          "n_segments": 2953,
+          "median_hs_sigma_m": 0.04060979133197142,
+          "median_hi_sigma_m": 0.43898583911100997,
+          "frac_meeting_mrd380": 0.6606840501185235,
+          "frac_meeting_mrd330": 0.0
+        }
+      }
+    },
+    "50km_F0_none_freeboard-only": {
+      "seg_len_km": 50.0,
+      "filter": "F0_none",
+      "variant": "freeboard-only",
+      "n_segments": 3254,
+      "median_matchups_per_seg": 11.0,
+      "median_hs_sigma_m": 0.014547291185799106,
+      "median_hi_sigma_m": 0.06890924727996295,
+      "frac_meeting_mrd380": 1.0,
+      "frac_meeting_mrd330": 1.0,
+      "runtime_s": 66.3,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 1794,
+          "median_hs_sigma_m": 0.014332784926300614,
+          "median_hi_sigma_m": 0.06568288317243681,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_W": {
+          "n_segments": 392,
+          "median_hs_sigma_m": 0.013250270550885068,
+          "median_hi_sigma_m": 0.05227429952208369,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_E": {
+          "n_segments": 1402,
+          "median_hs_sigma_m": 0.014456982472558343,
+          "median_hi_sigma_m": 0.0692058448887038,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Ross": {
+          "n_segments": 1460,
+          "median_hs_sigma_m": 0.01517115686228466,
+          "median_hi_sigma_m": 0.0724605451642859,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "MYI_obs": {
+          "n_segments": 301,
+          "median_hs_sigma_m": 0.012283501561479825,
+          "median_hi_sigma_m": 0.04695066843910318,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "FYI_obs": {
+          "n_segments": 2953,
+          "median_hs_sigma_m": 0.015076515878886188,
+          "median_hi_sigma_m": 0.07085726268959196,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        }
+      }
+    },
+    "50km_F1_mrd280_full": {
+      "seg_len_km": 50.0,
+      "filter": "F1_mrd280",
+      "variant": "full",
+      "n_segments": 3045,
+      "median_matchups_per_seg": 10.0,
+      "median_hs_sigma_m": 0.03752543988805054,
+      "median_hi_sigma_m": 0.4473148598932,
+      "frac_meeting_mrd380": 0.6981937602627257,
+      "frac_meeting_mrd330": 0.0,
+      "runtime_s": 58.1,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 1682,
+          "median_hs_sigma_m": 0.039317784311312734,
+          "median_hi_sigma_m": 0.4599943118575216,
+          "frac_meeting_mrd380": 0.6516052318668252,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_W": {
+          "n_segments": 369,
+          "median_hs_sigma_m": 0.08813249865503114,
+          "median_hi_sigma_m": 0.8904320506779668,
+          "frac_meeting_mrd380": 0.2086720867208672,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_E": {
+          "n_segments": 1313,
+          "median_hs_sigma_m": 0.0346141161771829,
+          "median_hi_sigma_m": 0.419591823302551,
+          "frac_meeting_mrd380": 0.776085300837776,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Ross": {
+          "n_segments": 1363,
+          "median_hs_sigma_m": 0.03579337751043495,
+          "median_hi_sigma_m": 0.435611491704296,
+          "frac_meeting_mrd380": 0.7556859867938371,
+          "frac_meeting_mrd330": 0.0
+        },
+        "MYI_obs": {
+          "n_segments": 280,
+          "median_hs_sigma_m": 0.09005520588590554,
+          "median_hi_sigma_m": 0.8400694124843104,
+          "frac_meeting_mrd380": 0.2357142857142857,
+          "frac_meeting_mrd330": 0.0
+        },
+        "FYI_obs": {
+          "n_segments": 2765,
+          "median_hs_sigma_m": 0.035884258157620856,
+          "median_hi_sigma_m": 0.4341749036839709,
+          "frac_meeting_mrd380": 0.7450271247739603,
+          "frac_meeting_mrd330": 0.0
+        }
+      }
+    },
+    "50km_F1_mrd280_freeboard-only": {
+      "seg_len_km": 50.0,
+      "filter": "F1_mrd280",
+      "variant": "freeboard-only",
+      "n_segments": 3045,
+      "median_matchups_per_seg": 10.0,
+      "median_hs_sigma_m": 0.01513369889205096,
+      "median_hi_sigma_m": 0.06945535740828006,
+      "frac_meeting_mrd380": 1.0,
+      "frac_meeting_mrd330": 1.0,
+      "runtime_s": 65.2,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 1682,
+          "median_hs_sigma_m": 0.014472844583143907,
+          "median_hi_sigma_m": 0.06649856701198664,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_W": {
+          "n_segments": 369,
+          "median_hs_sigma_m": 0.013191825826871138,
+          "median_hi_sigma_m": 0.05213823368167584,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_E": {
+          "n_segments": 1313,
+          "median_hs_sigma_m": 0.015020446526745265,
+          "median_hi_sigma_m": 0.07112782199982888,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Ross": {
+          "n_segments": 1363,
+          "median_hs_sigma_m": 0.01585918673168868,
+          "median_hi_sigma_m": 0.07340449600662415,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "MYI_obs": {
+          "n_segments": 280,
+          "median_hs_sigma_m": 0.012346732600180045,
+          "median_hi_sigma_m": 0.04700792620592867,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "FYI_obs": {
+          "n_segments": 2765,
+          "median_hs_sigma_m": 0.015293794410195986,
+          "median_hi_sigma_m": 0.07262498771525538,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        }
+      }
+    },
+    "50km_F2_mrd280_330_full": {
+      "seg_len_km": 50.0,
+      "filter": "F2_mrd280_330",
+      "variant": "full",
+      "n_segments": 3044,
+      "median_matchups_per_seg": 10.0,
+      "median_hs_sigma_m": 0.03758388080460097,
+      "median_hi_sigma_m": 0.4480864447109638,
+      "frac_meeting_mrd380": 0.6948094612352168,
+      "frac_meeting_mrd330": 0.0,
+      "runtime_s": 102.5,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 1682,
+          "median_hs_sigma_m": 0.03950914545602773,
+          "median_hi_sigma_m": 0.45952531621918624,
+          "frac_meeting_mrd380": 0.6468489892984542,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_W": {
+          "n_segments": 369,
+          "median_hs_sigma_m": 0.08900332081126726,
+          "median_hi_sigma_m": 0.8896342110713948,
+          "frac_meeting_mrd380": 0.20596205962059622,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_E": {
+          "n_segments": 1313,
+          "median_hs_sigma_m": 0.03451752391719166,
+          "median_hi_sigma_m": 0.4181609364721366,
+          "frac_meeting_mrd380": 0.7707539984767707,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Ross": {
+          "n_segments": 1362,
+          "median_hs_sigma_m": 0.03611190076510706,
+          "median_hi_sigma_m": 0.43589128475618144,
+          "frac_meeting_mrd380": 0.7540381791483113,
+          "frac_meeting_mrd330": 0.0
+        },
+        "MYI_obs": {
+          "n_segments": 280,
+          "median_hs_sigma_m": 0.09061433653909926,
+          "median_hi_sigma_m": 0.8377022195641277,
+          "frac_meeting_mrd380": 0.2357142857142857,
+          "frac_meeting_mrd330": 0.0
+        },
+        "FYI_obs": {
+          "n_segments": 2764,
+          "median_hs_sigma_m": 0.03598905379284305,
+          "median_hi_sigma_m": 0.4342236771184188,
+          "frac_meeting_mrd380": 0.7413169319826338,
+          "frac_meeting_mrd330": 0.0
+        }
+      }
+    },
+    "50km_F2_mrd280_330_freeboard-only": {
+      "seg_len_km": 50.0,
+      "filter": "F2_mrd280_330",
+      "variant": "freeboard-only",
+      "n_segments": 3044,
+      "median_matchups_per_seg": 10.0,
+      "median_hs_sigma_m": 0.015145160564125688,
+      "median_hi_sigma_m": 0.06961084341528782,
+      "frac_meeting_mrd380": 1.0,
+      "frac_meeting_mrd330": 1.0,
+      "runtime_s": 97.4,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 1682,
+          "median_hs_sigma_m": 0.014460361884081093,
+          "median_hi_sigma_m": 0.06633352121004635,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_W": {
+          "n_segments": 369,
+          "median_hs_sigma_m": 0.01325619988046147,
+          "median_hi_sigma_m": 0.0523111510442922,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_E": {
+          "n_segments": 1313,
+          "median_hs_sigma_m": 0.015045814940103557,
+          "median_hi_sigma_m": 0.07183367144208788,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Ross": {
+          "n_segments": 1362,
+          "median_hs_sigma_m": 0.01590415137615437,
+          "median_hi_sigma_m": 0.07344972731200688,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "MYI_obs": {
+          "n_segments": 280,
+          "median_hs_sigma_m": 0.012305788752146028,
+          "median_hi_sigma_m": 0.04726832989426221,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "FYI_obs": {
+          "n_segments": 2764,
+          "median_hs_sigma_m": 0.015255917607734724,
+          "median_hi_sigma_m": 0.07267741365282712,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        }
+      }
+    },
+    "100km_F0_none_full": {
+      "seg_len_km": 100.0,
+      "filter": "F0_none",
+      "variant": "full",
+      "n_segments": 3142,
+      "median_matchups_per_seg": 10.0,
+      "median_hs_sigma_m": 0.042690421194257366,
+      "median_hi_sigma_m": 0.4501264032509339,
+      "frac_meeting_mrd380": 0.6222151495862508,
+      "frac_meeting_mrd330": 0.0,
+      "runtime_s": 133.1,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 1717,
+          "median_hs_sigma_m": 0.04466351141110502,
+          "median_hi_sigma_m": 0.46191613929590114,
+          "frac_meeting_mrd380": 0.5760046592894583,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_W": {
+          "n_segments": 361,
+          "median_hs_sigma_m": 0.10048970928050252,
+          "median_hi_sigma_m": 0.9273371747374078,
+          "frac_meeting_mrd380": 0.16897506925207756,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_E": {
+          "n_segments": 1356,
+          "median_hs_sigma_m": 0.039819039994880394,
+          "median_hi_sigma_m": 0.42476812216739046,
+          "frac_meeting_mrd380": 0.6843657817109144,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Ross": {
+          "n_segments": 1425,
+          "median_hs_sigma_m": 0.040249302740209165,
+          "median_hi_sigma_m": 0.43826699302187333,
+          "frac_meeting_mrd380": 0.6778947368421052,
+          "frac_meeting_mrd330": 0.0
+        },
+        "MYI_obs": {
+          "n_segments": 274,
+          "median_hs_sigma_m": 0.10033026626052133,
+          "median_hi_sigma_m": 0.8669739361516208,
+          "frac_meeting_mrd380": 0.19343065693430658,
+          "frac_meeting_mrd330": 0.0
+        },
+        "FYI_obs": {
+          "n_segments": 2868,
+          "median_hs_sigma_m": 0.040703796259914285,
+          "median_hi_sigma_m": 0.43895491173733037,
+          "frac_meeting_mrd380": 0.6631799163179917,
+          "frac_meeting_mrd330": 0.0
+        }
+      }
+    },
+    "100km_F0_none_freeboard-only": {
+      "seg_len_km": 100.0,
+      "filter": "F0_none",
+      "variant": "freeboard-only",
+      "n_segments": 3142,
+      "median_matchups_per_seg": 10.0,
+      "median_hs_sigma_m": 0.01508397274667653,
+      "median_hi_sigma_m": 0.06933740438335088,
+      "frac_meeting_mrd380": 1.0,
+      "frac_meeting_mrd330": 1.0,
+      "runtime_s": 157.5,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 1717,
+          "median_hs_sigma_m": 0.014459264166435677,
+          "median_hi_sigma_m": 0.06651090083783497,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_W": {
+          "n_segments": 361,
+          "median_hs_sigma_m": 0.01371826444406629,
+          "median_hi_sigma_m": 0.0543595485975839,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_E": {
+          "n_segments": 1356,
+          "median_hs_sigma_m": 0.014559074370513797,
+          "median_hi_sigma_m": 0.0695958788912342,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Ross": {
+          "n_segments": 1425,
+          "median_hs_sigma_m": 0.015255545318195673,
+          "median_hi_sigma_m": 0.07285819602701699,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "MYI_obs": {
+          "n_segments": 274,
+          "median_hs_sigma_m": 0.01246621125074455,
+          "median_hi_sigma_m": 0.049843854966142756,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "FYI_obs": {
+          "n_segments": 2868,
+          "median_hs_sigma_m": 0.015171228378329803,
+          "median_hi_sigma_m": 0.07212590135573144,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        }
+      }
+    },
+    "100km_F1_mrd280_full": {
+      "seg_len_km": 100.0,
+      "filter": "F1_mrd280",
+      "variant": "full",
+      "n_segments": 2933,
+      "median_matchups_per_seg": 10.0,
+      "median_hs_sigma_m": 0.03748148851006254,
+      "median_hi_sigma_m": 0.446334523148665,
+      "frac_meeting_mrd380": 0.7023525400613706,
+      "frac_meeting_mrd330": 0.0,
+      "runtime_s": 144.7,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 1605,
+          "median_hs_sigma_m": 0.039149928843772434,
+          "median_hi_sigma_m": 0.458356947010751,
+          "frac_meeting_mrd380": 0.6585669781931465,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_W": {
+          "n_segments": 338,
+          "median_hs_sigma_m": 0.09003394116671484,
+          "median_hi_sigma_m": 0.8952122867800808,
+          "frac_meeting_mrd380": 0.21005917159763313,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_E": {
+          "n_segments": 1267,
+          "median_hs_sigma_m": 0.034585821449648564,
+          "median_hi_sigma_m": 0.41880963669532784,
+          "frac_meeting_mrd380": 0.7782162588792423,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Ross": {
+          "n_segments": 1328,
+          "median_hs_sigma_m": 0.03598758167190649,
+          "median_hi_sigma_m": 0.4328206602488627,
+          "frac_meeting_mrd380": 0.7552710843373494,
+          "frac_meeting_mrd330": 0.0
+        },
+        "MYI_obs": {
+          "n_segments": 253,
+          "median_hs_sigma_m": 0.09134788601359624,
+          "median_hi_sigma_m": 0.8450820538530583,
+          "frac_meeting_mrd380": 0.24110671936758893,
+          "frac_meeting_mrd330": 0.0
+        },
+        "FYI_obs": {
+          "n_segments": 2680,
+          "median_hs_sigma_m": 0.03598788144681318,
+          "median_hi_sigma_m": 0.4323818571576806,
+          "frac_meeting_mrd380": 0.7458955223880597,
+          "frac_meeting_mrd330": 0.0
+        }
+      }
+    },
+    "100km_F1_mrd280_freeboard-only": {
+      "seg_len_km": 100.0,
+      "filter": "F1_mrd280",
+      "variant": "freeboard-only",
+      "n_segments": 2933,
+      "median_matchups_per_seg": 10.0,
+      "median_hs_sigma_m": 0.015217217286729964,
+      "median_hi_sigma_m": 0.0720359865071056,
+      "frac_meeting_mrd380": 1.0,
+      "frac_meeting_mrd330": 1.0,
+      "runtime_s": 137.9,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 1605,
+          "median_hs_sigma_m": 0.014609155290552426,
+          "median_hi_sigma_m": 0.06862096633981325,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_W": {
+          "n_segments": 338,
+          "median_hs_sigma_m": 0.01344236008929936,
+          "median_hi_sigma_m": 0.0535162192540085,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_E": {
+          "n_segments": 1267,
+          "median_hs_sigma_m": 0.015206784592251367,
+          "median_hi_sigma_m": 0.07257940649937834,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Ross": {
+          "n_segments": 1328,
+          "median_hs_sigma_m": 0.01599442366751736,
+          "median_hi_sigma_m": 0.07618327556908502,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "MYI_obs": {
+          "n_segments": 253,
+          "median_hs_sigma_m": 0.012830828794216228,
+          "median_hi_sigma_m": 0.049068057785138494,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "FYI_obs": {
+          "n_segments": 2680,
+          "median_hs_sigma_m": 0.015851180297346827,
+          "median_hi_sigma_m": 0.07315693573417154,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        }
+      }
+    },
+    "100km_F2_mrd280_330_full": {
+      "seg_len_km": 100.0,
+      "filter": "F2_mrd280_330",
+      "variant": "full",
+      "n_segments": 2932,
+      "median_matchups_per_seg": 10.0,
+      "median_hs_sigma_m": 0.03750701739476964,
+      "median_hi_sigma_m": 0.44604177576650705,
+      "frac_meeting_mrd380": 0.701568894952251,
+      "frac_meeting_mrd330": 0.0,
+      "runtime_s": 115.1,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 1605,
+          "median_hs_sigma_m": 0.03914076514158514,
+          "median_hi_sigma_m": 0.45778125906565276,
+          "frac_meeting_mrd380": 0.6554517133956387,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_W": {
+          "n_segments": 338,
+          "median_hs_sigma_m": 0.0897542158951298,
+          "median_hi_sigma_m": 0.8923398975660283,
+          "frac_meeting_mrd380": 0.20710059171597633,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Weddell_E": {
+          "n_segments": 1267,
+          "median_hs_sigma_m": 0.034542969467432495,
+          "median_hi_sigma_m": 0.4188328306226699,
+          "frac_meeting_mrd380": 0.7750591949486977,
+          "frac_meeting_mrd330": 0.0
+        },
+        "Ross": {
+          "n_segments": 1327,
+          "median_hs_sigma_m": 0.035805614734399395,
+          "median_hi_sigma_m": 0.43450787699680105,
+          "frac_meeting_mrd380": 0.7573474001507159,
+          "frac_meeting_mrd330": 0.0
+        },
+        "MYI_obs": {
+          "n_segments": 253,
+          "median_hs_sigma_m": 0.09176281015576507,
+          "median_hi_sigma_m": 0.8493230525302505,
+          "frac_meeting_mrd380": 0.24110671936758893,
+          "frac_meeting_mrd330": 0.0
+        },
+        "FYI_obs": {
+          "n_segments": 2679,
+          "median_hs_sigma_m": 0.035770050399907403,
+          "median_hi_sigma_m": 0.4336425626052474,
+          "frac_meeting_mrd380": 0.7450541246733856,
+          "frac_meeting_mrd330": 0.0
+        }
+      }
+    },
+    "100km_F2_mrd280_330_freeboard-only": {
+      "seg_len_km": 100.0,
+      "filter": "F2_mrd280_330",
+      "variant": "freeboard-only",
+      "n_segments": 2932,
+      "median_matchups_per_seg": 10.0,
+      "median_hs_sigma_m": 0.015239465069334858,
+      "median_hi_sigma_m": 0.07217508380041435,
+      "frac_meeting_mrd380": 1.0,
+      "frac_meeting_mrd330": 1.0,
+      "runtime_s": 97.5,
+      "by_region": {
+        "Weddell": {
+          "n_segments": 1605,
+          "median_hs_sigma_m": 0.014599821410157103,
+          "median_hi_sigma_m": 0.06855447616163843,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_W": {
+          "n_segments": 338,
+          "median_hs_sigma_m": 0.013448859989644447,
+          "median_hi_sigma_m": 0.0536019293994911,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Weddell_E": {
+          "n_segments": 1267,
+          "median_hs_sigma_m": 0.015235282104593153,
+          "median_hi_sigma_m": 0.07257268610192676,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "Ross": {
+          "n_segments": 1327,
+          "median_hs_sigma_m": 0.01597033285263294,
+          "median_hi_sigma_m": 0.07596669216129005,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "MYI_obs": {
+          "n_segments": 253,
+          "median_hs_sigma_m": 0.012979862145617062,
+          "median_hi_sigma_m": 0.048850493082899744,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        },
+        "FYI_obs": {
+          "n_segments": 2679,
+          "median_hs_sigma_m": 0.015868345824363188,
+          "median_hi_sigma_m": 0.07324655119610922,
+          "frac_meeting_mrd380": 1.0,
+          "frac_meeting_mrd330": 1.0
+        }
+      }
+    }
+  }
+}

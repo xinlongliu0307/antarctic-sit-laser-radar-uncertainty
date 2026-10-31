@@ -1,0 +1,60 @@
+{
+  "amplitudes": {
+    "ice_type": 0.1,
+    "snow_depth_per_IQR": 0.1,
+    "snow_density_per_sigma": 0.05
+  },
+  "scenarios": {
+    "S0": {
+      "label": "baseline (state-independent)",
+      "mu_delta_mean": 0.7000000000000001,
+      "mu_delta_p05": 0.7,
+      "mu_delta_p95": 0.7,
+      "sigma_delta_mean": 0.19999999999999998
+    },
+    "S1": {
+      "label": "ice type",
+      "mu_delta_mean": 0.6636651599729299,
+      "mu_delta_p05": 0.6499999999999999,
+      "mu_delta_p95": 0.7381049983978271,
+      "sigma_delta_mean": 0.19999999999999998
+    },
+    "S2": {
+      "label": "snow depth",
+      "mu_delta_mean": 0.6891223720250599,
+      "mu_delta_p05": 0.5121252252339376,
+      "mu_delta_p95": 0.8166997461927291,
+      "sigma_delta_mean": 0.19999999999999998
+    },
+    "S3": {
+      "label": "snow density",
+      "mu_delta_mean": 0.7000000000000001,
+      "mu_delta_p05": 0.7,
+      "mu_delta_p95": 0.7,
+      "sigma_delta_mean": 0.19999999999999998
+    },
+    "S4": {
+      "label": "combined",
+      "mu_delta_mean": 0.6528129780221253,
+      "mu_delta_p05": 0.4972959029563447,
+      "mu_delta_p95": 0.7809359161462208,
+      "sigma_delta_mean": 0.19999999999999998
+    },
+    "S4r": {
+      "label": "combined, reversed signs",
+      "mu_delta_mean": 0.745430767644116,
+      "mu_delta_p05": 0.6190640838537791,
+      "mu_delta_p95": 0.9027040970436552,
+      "sigma_delta_mean": 0.19999999999999998
+    },
+    "S5": {
+      "label": "combined + heteroscedastic",
+      "mu_delta_mean": 0.6528129780221253,
+      "mu_delta_p05": 0.4972959029563447,
+      "mu_delta_p95": 0.7809359161462208,
+      "sigma_delta_mean": 0.23692
+    }
+  },
+  "n_sub": 5000,
+  "n_mc": 10000
+}
