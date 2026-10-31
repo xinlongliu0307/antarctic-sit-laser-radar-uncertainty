@@ -1,4 +1,3 @@
-cxcx
 # Coupled Monte Carlo uncertainty analysis of Antarctic sea-ice thickness from laser–radar altimetry
 
 Analysis code and derived data for:
