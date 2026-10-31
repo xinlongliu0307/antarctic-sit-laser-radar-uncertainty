@@ -1,98 +1,134 @@
-# Coupled Monte Carlo Uncertainty Analysis of Antarctic Sea-Ice Thickness from Laser–Radar Altimetry
+cxcx
+# Coupled Monte Carlo uncertainty analysis of Antarctic sea-ice thickness from laser–radar altimetry
 
-Analysis pipeline and derived data products for:
+Analysis code and derived data for:
 
-> Liu, X., Fraser, A. D., Corney, S.P., Tilling, R.L., and Heil, P.
-> **Bulk sea-ice density and Ku-band penetration co-dominate the uncertainty in Antarctic sea-ice thickness from coupled laser–radar altimetry retrieval.**
-> Under review at *Remote Sensing of Environment*, 13 July 2026.
-> https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7117568
+> Liu, X., Tilling, R. L., Fraser, A. D., Corney, S. P., and Heil, P.
+> **Bulk sea-ice density and Ku-band penetration co-dominate the parametric uncertainty of Antarctic sea-ice thickness retrieval from coupled laser–radar altimetry.**
+> Resubmitted to *Remote Sensing of Environment*, 29 October 2026 (revision of manuscript RSE-D-26-03119).
 
-This repository will be archived on Zenodo: https://zenodo.org/records/20409432. The citation above will be updated on acceptance.
+Archived on Zenodo: https://doi.org/10.5281/zenodo.20409432. The citation will be updated on acceptance.
+
+| Release | Manuscript version | Notes |
+|---|---|---|
+| `v2.0-resubmitted` (this branch) | Resubmission, 29 Oct 2026 | Results quoted below |
+| [`v1.0-submitted`](https://github.com/xinlongliu0307/antarctic-sit-laser-radar-uncertainty/tree/v1.0-submitted) | First submission, 13 Jul 2026 | Superseded; kept for comparison ([compare](https://github.com/xinlongliu0307/antarctic-sit-laser-radar-uncertainty/compare/v1.0-submitted...v2.0-resubmitted)) |
 
 ## Overview
 
-This pipeline quantifies the uncertainty budget of Antarctic sea-ice thickness (SIT) retrieved from coupled laser–radar altimetry, using CRYO2ICE near-coincident CryoSat-2 (Ku-band radar) and ICESat-2 (laser) observations over the Weddell and Ross seas across the 2022–2025 winters. A coupled Monte Carlo error-propagation framework perturbs freeboard, snow depth, snow density, sea-ice density, and the Ku-band penetration fraction simultaneously, then decomposes the resulting SIT variance by contributor.
+Snow depth retrieved from the difference between ICESat-2 laser and CryoSat-2 Ku-band radar freeboards depends on the assumed Ku-band penetration fraction δ, so snow depth and penetration cannot be determined separately from the two freeboards. This pipeline propagates that dependence: a coupled Monte Carlo framework draws freeboards, snow density, bulk sea-ice density and δ from their priors and re-derives snow depth in every realisation, for 65,165 CRYO2ICE matchups (the positive-freeboard subset of 82,341) over the Weddell and Ross seas in the austral winters of 2022–2025. The bulk sea-ice density prior is set at each matchup from the observed multi-year ice concentration (Melsheimer et al., 2023).
 
-Within this error model, the two co-dominant propagated contributors to SIT uncertainty are bulk sea-ice density (42%) and the Ku-band penetration fraction (40%). A controlled snow-substitution experiment shows that replacing AMSR2-informed climatological snow with CRYO2ICE snow raises median SIT by 0.62 m against the CCI v4.0 baseline and 0.67 m against the Cryo-TEMPO baseline. The input set comprises 82,341 CRYO2ICE matchups; the Monte Carlo experiments use the 65,165-segment positive-freeboard subset.
+Within this error model:
+
+- bulk sea-ice density and Ku-band penetration account for **40.9 %** and **35.1 %** of the propagated sea-ice thickness variance; freeboards and snow density for 14.4 %; parameter interactions for 9.5 % (shares are not renormalised);
+- the two leading terms exchange rank at σ_δ ≈ 0.20–0.25, and σ_δ ≈ 0.10 would leave density as the single dominant term;
+- at the 25 km segment scale of the CRISTAL requirements, the median sea-ice thickness uncertainty is 0.452 m (requirement 0.15 m, 3,443 segments); freeboard noise alone gives 0.068 m;
+- replacing the AMSR-E/AMSR2 snow climatology in the CCI v4.0 and Cryo-TEMPO level-2 pre-processed products with CRYO2ICE snow increases sea-ice thickness by a per-matchup median of 0.352 m (CCI) and 0.406 m (Cryo-TEMPO) at δ = 0.70, and by 0.10–0.16 m at the empirical optimum δ* ≈ 0.55.
 
 ## Repository structure
 
 ```
-├── README.md
-├── LICENSE
-├── requirements.txt
-├── code/                 Pipeline scripts (versions used for the submitted manuscript)
-│   ├── archive/          Superseded figure-script versions and one-off diagnostics
-├── data/                 Derived outputs (Monte Carlo summaries, sweeps, substitution results)
+├── README.md, LICENSE, CITATION.cff, requirements.txt
+├── code/              Pipeline scripts, run in step order
+│   ├── archive/       Superseded scripts kept for provenance (not part of the pipeline)
+│   └── pbs/           PBS job scripts used on NCI Gadi
+├── data/              Derived outputs sufficient to reproduce every table and figure
+└── figures/           The twelve manuscript figures (PDF)
 ```
 
 ## Pipeline
 
-Scripts are run in numerical order. `R3_config_v4.py` holds all shared physical parameters, distributions, and file paths, and is the only file that needs editing to rerun the pipeline in a different environment.
+`R3_config_v4.py` holds the physical constants, priors, region definitions and file paths, and is the only file to edit to run elsewhere. `R3_sweep_engine_v7.py` is the shared Monte Carlo engine (one-at-a-time and simultaneous perturbations, region-mean shares) imported by the decomposition and sweep scripts.
 
-| Script | Purpose |
-|---|---|
-| `R3_config_v4.py` | Shared configuration: physical constants, regional sea-ice density parameterisation (Alexandrov et al., 2010; 940 kg m⁻³ cap after Timco and Frederking, 1996), Monte Carlo settings, paths |
-| `R3_Step01_verify_input_data.py` | Verify the CRYO2ICE collocation CSV (82,341 matchups) against the source-manuscript statistics before any Monte Carlo runs |
-| `R3_Step01_v2_add_subsectors.py` | Assign Weddell sub-sectors and apply the positive-freeboard filter (65,165 segments retained) |
-| `R3_Step02_v4_coupled.py` | Experiments A and B: coupled Monte Carlo with per-segment regional sea-ice density (western Weddell MYI 882 kg m⁻³; eastern Weddell and Ross FYI 916.7 kg m⁻³) |
-| `R3_Step02b_shape_robustness.py` | Robustness of the variance decomposition to the assumed sea-ice density distribution shape |
-| `R3_Step02c_western_weddell.py` | Western Weddell sub-sector sensitivity across four sea-ice density parameterisations |
-| `R3_Step03_variance_decomposition_ExpB.py` | Experiment B: one-at-a-time perturbation variance decomposition |
-| `R3_Step03b_delta_sweep.py` | Sensitivity sweep of the penetration-fraction uncertainty σ_δ (10,000 draws), locating the σ_δ ≈ 0.10–0.15 crossover |
-| `R3_Step04_full_analysis.py` | Full analysis over the positive-freeboard subset |
-| `R3_Step04_v3_experiment_C.py` | Experiment C: snow-source comparison and penetration sensitivity |
-| `R3_Step05_v6_figures.py` | Publication figures for the uncertainty-budget experiments |
-| `R3_Step06_bridge_script.py` | Bridge CRYO2ICE segments to the 216 × 216 EASE-2 50 km gridded products for the substitution experiment |
-| `R3_Step07_v2_spread_attribution.py` | Spread attribution with consistent denominators, reported at both thickness and freeboard level |
-| `R3_Step08_L2P_collocation_aug2022.py` | Proof of concept: nearest-neighbour collocation of CCI v4.0 and Cryo-TEMPO L2P along-track data with CRYO2ICE segments (August 2022) |
-| `R3_Step08b_verify_sector_correlation.py` | Check whether the pooled snow correlation is inflated by the inter-sector Weddell–Ross contrast |
-| `R3_Step08c_L2P_collocation_full.py` | Full-period L2P collocation (CCI v4.0: winters 2022–2023; Cryo-TEMPO: winters 2022–2025) |
-| `R3_Step09_snow_swap_v5.py` | Controlled snow-substitution experiment: AMSR2-informed baselines (CCI v4.0, Cryo-TEMPO) with snow replaced by CRYO2ICE |
-| `R3_Step10_snow_swap_figures_v8.py` | Publication figures for the substitution experiment |
-| `R3_verify_table_summary_v2.py` | Extract pooled-years table values from the Step 09 output |
+| Stage | Script | Purpose |
+|---|---|---|
+| Input | `R3_Step01_v2_add_subsectors.py` | Assign Weddell sub-sectors; positive-freeboard filter (65,165 matchups) |
+| | `R3_Step12_download_melsheimer.py` | Download the University of Bremen ASCAT–AMSR2 Antarctic sea-ice type products (Melsheimer et al., 2023) |
+| | `R3_Step13_icetype_collocation.py` | Per-matchup multi-year ice concentration and ice type (nearest 12.5 km cell, EPSG:3412); writes the Monte Carlo input |
+| Monte Carlo | `R3_Step02_v7_mixture.py` | Experiments A (simultaneous) and B (one-at-a-time) under the per-matchup mixture density prior; interaction residual |
+| | `R3_Step02_v5_coupled_20260830.py` | Sensitivity case: sector-rule density prior |
+| | `R3_Step02_v6_icetype.py` | Sensitivity case: binary ice-type density prior |
+| | `R3_Step02b_v7_shape_robustness.py` | Skew-normal versus Gaussian density components |
+| | `R3_Step03_v7_rho_sweep.py` | Variance shares versus the sea-ice density spread σ_ρi |
+| | `R3_Step03b_v7_delta_sweep.py` | Variance shares versus the penetration-fraction spread σ_δ (0.02–0.40) |
+| | `R3_Step04_v7_experiment_C.py` | Snow-source comparison; retrieved thickness versus δ, with snow-density envelope |
+| | `R3_Step15_state_dependent_delta.py` | State-dependent penetration-fraction priors (Appendix F) |
+| | `R3_Step16_v7_alt_priors.py` | Alternative priors of Table 1 (common random numbers) |
+| Figures | `R3_Step05_v7_figures.py` | Monte Carlo thickness figures (Figure 1) |
+| | `R3_Step05_v7_variance_figures.py` | Variance-share figures (Figures 2, 3 and 3b) |
+| | `R3_Step05b_fig04_penetration_v8.py` | Figure 4 (final version) |
+| Snow replacement | `R3_Step08c_L2P_collocation_full.py` | Collocation of CCI v4.0 and Cryo-TEMPO L2P with CRYO2ICE, all winters (CCI 2022–2023, Cryo-TEMPO 2022–2025) |
+| | `R3_Step09_snow_swap_v7.py` | Snow-replacement experiment, including the δ sweep from 0.40 to 1.00 |
+| | `R3_Step10_snow_swap_figures_v9.py` | Snow scatter (Figure C.1) |
+| | `R3_Step10b_dhi_figures_v10.py` | Δh_i distributions and Δh_i versus δ |
+| | `R3_Step10c_heatmap_v11.py` | Sector × winter heatmap, with plotted values written to CSV |
+| | `R3_Step14_amsr2_gridscale.py` | Same-day CRYO2ICE–AMSR2 comparison at matchup, 12.5 km and 25 km scales |
+| CRISTAL | `R3_Step11_v7_segment_uncertainty.py` | 25 km segment-scale uncertainty against MRD-330 and MRD-380, parameters drawn once per segment |
+| Checks | `R3_Step17_v7_text_checks.py` | Table values and consistency checks |
+| | `R3_Step18_c2i_snow_consistency.py` | Consistency of the CRYO2ICE snow column with the companion study (found the bug fixed on 27 Sep 2026) |
+| | `R3_Step19_v8_manuscript_numbers.py` | Every number in the manuscript, recomputed and keyed (`data/step19_keys.txt`) |
+| | `R3_Step20_heatmap_numbers_v8.py` | Every number shown in the heatmap |
 
-`code/archive/` retains superseded figure-script versions (`Step05_v5`, `Step10_v7`) and three short diagnostic scripts, kept for provenance; they are not part of the submitted pipeline.
+`code/archive/` holds scripts that are not part of the pipeline but document how it was built: the input verification (`R3_Step01_verify_input_data.py`), the August 2022 L2P proof of concept and its sector-correlation check (`R3_Step08_*`, `R3_Step08b_*`), and earlier figure versions. `code/archive/R3_patch_v8_snow_fix.py` documents the 27 September 2026 correction: the snow column first used in Step 09 carried no penetration factor (implied δ = 1.00) and was recomputed from the freeboards at δ = 0.70, as in the Monte Carlo; AU_SI12 flag codes are masked in Step 14. The scripts in `code/` already contain the fix.
 
 ## Data
 
-`data/` contains the derived outputs sufficient to reproduce the manuscript tables and figures without rerunning the Monte Carlo:
-
 | File | Contents |
 |---|---|
-| `R3_SIT_snow_swap_all_winters_v5.csv` | Per-segment snow-substitution results, all winters (82,341 rows; baseline and improvement scenarios for CCI v4.0 and Cryo-TEMPO) |
-| `R3_SIT_snow_swap_summary_v5.txt` | Human-readable summary of the substitution experiment |
-| `R3_density_sweep_d070_v4_coupled.csv` | Coupled sweep over sea-ice density uncertainty |
-| `R3_delta_sweep_v1.csv` | Sweep over penetration-fraction uncertainty σ_δ |
-| `R3_penetration_sensitivity_d070_v3.csv` | Penetration sensitivity at the δ = 0.70 reference scenario |
-| `R3_ExpB_d070_v4.json`, `R3_ExpC_d070_v3.json` | Experiment B and C summary statistics |
-| `R3_spread_attribution_v2.json` | Spread-attribution results |
-| `R3_shape_robustness_v5.json` | Distribution-shape robustness results |
-| `R3_western_weddell_sensitivity_v1.json` | Western Weddell parameterisation sensitivity |
+| `R3_input_d070_icetype.csv.gz` | Per-matchup Monte Carlo input (65,165 rows): freeboards, sector and sub-sector, observed multi-year ice concentration and ice type |
+| `R3_step02_v7_subsample_idx.npy` | Indices of the 5,000-matchup decomposition subsample (seed 42) |
+| `R3_icetype_sector_composition.csv` | Ice-type composition of the matchups by sector |
+| `R3_ExpA_d070_v7.npz` | Experiment A (simultaneous perturbation) output, mixture prior |
+| `R3_ExpB_d070_v7.json` | Experiment B single-parameter shares and interaction residual by stratum, mixture prior (adopted) |
+| `R3_ExpB_d070_v5.json`, `R3_ExpB_d070_v6.json` | The same under the sector-rule and binary ice-type priors (sensitivity cases) |
+| `R3_ExpC_d070_v7.json` | Snow-source comparison summary |
+| `R3_density_sweep_d070_v7.csv` | Values plotted in Figure 3 |
+| `R3_delta_sweep_v7.csv` | Values plotted in Figure 3b |
+| `R3_state_dependent_delta_v7.csv`, `R3_state_dependent_delta_v7.json` | Shares under state-dependent penetration priors (Appendix F) |
+| `R3_segment_uncertainty_v7.csv.gz`, `R3_segment_summary_v7.json` | Per-segment snow-depth and thickness uncertainty, and summary, for the CRISTAL benchmark |
+| `R3_shape_robustness_v7.json` | Shares under skew-normal density components |
+| `R3_alt_priors_v7.csv`, `R3_alt_priors_central_hi_v7.csv` | Shares and central-value thickness under the alternative priors |
+| `R3_penetration_sensitivity_d070_v7.csv` | Values plotted in Figure 4 |
+| `R3_SIT_snow_swap_all_winters_v7.csv.gz` | Per-matchup snow-replacement results, all winters |
+| `R3_snow_swap_delta_sweep_v7.csv` | Median Δh_i versus δ by product and sub-sector |
+| `R3_SIT_snow_swap_summary_v7.txt` | Summary of the snow-replacement experiment |
+| `R3_Fig_C2_03_sector_year_heatmap_values.csv` | Values plotted in the heatmap figure |
+| `R3_amsr2_gridscale_v7.csv`, `R3_amsr2_gridscale_cells_v7.csv` | AMSR2 grid-scale comparison: summary and per-cell values |
+| `step19_keys.txt` | Every manuscript number with the key used in the text |
 
-Upstream inputs (CRYO2ICE collocation CSV from the companion snow-thickness pipeline, CCI v4.0 and Cryo-TEMPO L2P products, AMSR2 snow depth) are not redistributed here; sources are listed in the manuscript's Data Availability statement. The companion CRYO2ICE snow-thickness pipeline is at [xinlongliu0307](https://github.com/xinlongliu0307).
+`.csv.gz` files are read directly by `pandas.read_csv`. The pipeline itself reads the Monte Carlo input as a pandas pickle (`R3_input_d070_icetype.pkl`); to rerun from this repository, write it back with `pd.read_csv('data/R3_input_d070_icetype.csv.gz').to_pickle(...)` into the output folder set in `R3_config_v4.py`.
 
-## Environment and reproducibility
+Upstream inputs are not redistributed: the CRYO2ICE along-track snow-depth dataset (https://doi.org/10.5281/zenodo.19220192), CCI v4.0 and Cryo-TEMPO L2P, AMSR2 AU_SI12, and the Melsheimer et al. (2023) ice-type product; sources are listed in the manuscript's Data availability statement.
 
-The pipeline was run on NCI Gadi (project gv90) under Python 3.9 with the pinned versions in `requirements.txt`. Paths in `R3_config_v4.py` point to the Gadi filesystem (`/g/data/gv90/...`) and must be edited to rerun elsewhere. Scripts are deliberately kept as plain, sequential Python with no scheduler dependencies; each script prints its verification statistics on completion.
+## Changes since v1.0-submitted
+
+- Sea-ice type is assigned per matchup from an ice-type product; the bulk density prior is a two-component mixture weighted by multi-year ice concentration (the sector rule and a binary class remain as sensitivity cases).
+- Variance shares are fractions of the simultaneous-perturbation variance and are no longer renormalised; the 9.5 % interaction residual is reported with its pairwise components.
+- New: penetration-uncertainty sweep to σ_δ = 0.40, state-dependent penetration priors, alternative priors, CRISTAL segment-scale benchmark, same-day AMSR2 grid-scale comparison, and the δ dependence of the snow-replacement result.
+- Snow-replacement results recomputed with the CRYO2ICE snow column at δ = 0.70 (see `code/archive/R3_patch_v8_snow_fix.py`).
+- Removed: the gridded bridge and spread-attribution steps and the Western Weddell parameterisation sensitivity of v1.0, which the resubmitted manuscript no longer reports.
+
+## Environment
+
+Run on NCI Gadi under Python 3.9.2 (`module load python3/3.9.2`) with the versions in `requirements.txt`. Paths in `R3_config_v4.py` point to `/g/data/gv90/...`. The PBS scripts in `code/pbs/` record the resources used and are not needed to run the Python scripts elsewhere.
 
 ```
 pip install -r requirements.txt
-python code/R3_Step01_verify_input_data.py
+cd code
+python R3_Step01_v2_add_subsectors.py
 ```
 
-## Key conventions
+## Conventions
 
-- Positive-freeboard filtering is applied once, in Step 01 v2; downstream scripts assume it.
-- Sea-ice density draws are capped at 940 kg m⁻³; the cap binds for roughly 26% of FYI draws and under 1% of MYI draws, and the clipped-distribution effect is disclosed in the manuscript.
-- The snow-substitution sign convention is Δh_i = h_i(improved) − h_i(baseline), with AMSR2-informed products as the baseline.
-- Colours follow the Okabe-Ito palette (Weddell `#0072B2`, Ross `#D55E00`).
+- The positive-freeboard filter is applied once, in Step 01 v2; downstream scripts assume it.
+- Sea-ice density draws are capped at 940 kg m⁻³; snow density is an unbounded Gaussian N(330, 70) kg m⁻³.
+- Snow-replacement sign convention: Δh_i = h_i(CRYO2ICE snow) − h_i(AMSR-E/AMSR2 snow).
+- Colours follow the Okabe–Ito palette.
 
-## License
+## Licence
 
 Code and derived data are released under the MIT License (see `LICENSE`).
 
 ## Contact
 
-Xinlong Liu — Institute for Marine and Antarctic Studies, University of Tasmania / Australian Antarctic Program Partnership.
-GitHub: [@xinlongliu0307](https://github.com/xinlongliu0307)
+Xinlong Liu, Institute for Marine and Antarctic Studies, University of Tasmania, and Australian Antarctic Program Partnership. GitHub: [@xinlongliu0307](https://github.com/xinlongliu0307)

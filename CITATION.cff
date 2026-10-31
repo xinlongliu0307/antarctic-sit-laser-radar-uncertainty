@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the article below and this archive."
+title: "Code and derived data for: Bulk sea-ice density and Ku-band penetration co-dominate the parametric uncertainty of Antarctic sea-ice thickness retrieval from coupled laser-radar altimetry"
+version: "2.0-resubmitted"
+date-released: 2026-10-31
+license: MIT
+repository-code: "https://github.com/xinlongliu0307/antarctic-sit-laser-radar-uncertainty"
+type: software
+authors:
+  - family-names: Liu
+    given-names: Xinlong
+    affiliation: "Institute for Marine and Antarctic Studies, University of Tasmania; Australian Antarctic Program Partnership"
+  - family-names: Tilling
+    given-names: Rachel L.
+    affiliation: "NASA Goddard Space Flight Center; Earth System Science Interdisciplinary Center, University of Maryland"
+  - family-names: Fraser
+    given-names: Alexander D.
+    affiliation: "Institute for Marine and Antarctic Studies, University of Tasmania; Australian Antarctic Program Partnership"
+  - family-names: Corney
+    given-names: Stuart P.
+    affiliation: "Institute for Marine and Antarctic Studies, University of Tasmania; Australian Antarctic Program Partnership"
+  - family-names: Heil
+    given-names: Petra
+    affiliation: "Australian Antarctic Division; Australian Antarctic Program Partnership"
+keywords:
+  - Antarctic sea ice
+  - sea-ice thickness
+  - CRYO2ICE
+  - CryoSat-2
+  - ICESat-2
+  - CRISTAL
+  - uncertainty
+  - Monte Carlo

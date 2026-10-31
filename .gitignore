@@ -3,6 +3,20 @@ __pycache__/
 *.pyo
 .ipynb_checkpoints/
 .DS_Store
+.venv/
+
+# figures: only the twelve manuscript PDFs in figures/ are tracked
 *.png
 *.pdf
-.venv/
+!figures/*.pdf
+
+# workspace by-products that must never be committed
+*.bak*
+*_pre_v[0-9]*
+*.pkl
+*.o
+*.e
+*.log
+logs/
+R3_release_inventory.csv
+R3_triage_report.csv
