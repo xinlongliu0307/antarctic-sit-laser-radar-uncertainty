@@ -19,7 +19,7 @@ Snow depth retrieved from the difference between ICESat-2 laser and CryoSat-2 Ku
 
 Within this error model:
 
-- bulk sea-ice density and Ku-band penetration account for **40.9 %** and **35.1 %** of the propagated sea-ice thickness variance; freeboards and snow density for 14.5 %; parameter interactions for 9.5 % (shares are not renormalised);
+- bulk sea-ice density and Ku-band penetration account for **40.9%** and **35.1%** of the propagated sea-ice thickness variance; freeboards and snow density for 14.5%; parameter interactions for 9.5% (shares are not renormalised);
 - the two leading terms exchange rank at σ_δ ≈ 0.20–0.25, and σ_δ ≈ 0.10 would leave density as the single dominant term;
 - at the 25 km segment scale of the CRISTAL requirements, the median sea-ice thickness uncertainty is 0.452 m (requirement 0.15 m, 3,443 segments); freeboard noise alone gives 0.068 m;
 - replacing the AMSR-E/AMSR2 snow climatology in the CCI v4.0 and Cryo-TEMPO level-2 pre-processed products with CRYO2ICE snow increases sea-ice thickness by a per-matchup median of 0.352 m (CCI) and 0.406 m (Cryo-TEMPO) at δ = 0.70, and by 0.10–0.16 m at the empirical optimum δ* ≈ 0.55.
@@ -102,7 +102,7 @@ Upstream inputs are not redistributed: the CRYO2ICE along-track snow-depth datas
 ## Changes since v1.0-submitted
 
 - Sea-ice type is assigned per matchup from an ice-type product; the bulk density prior is a two-component mixture weighted by multi-year ice concentration (the sector rule and a binary class remain as sensitivity cases).
-- Variance shares are fractions of the simultaneous-perturbation variance and are no longer renormalised; the 9.5 % interaction residual is reported with its pairwise components.
+- Variance shares are fractions of the simultaneous-perturbation variance and are no longer renormalised; the 9.5% interaction residual is reported with its pairwise components.
 - New: penetration-uncertainty sweep to σ_δ = 0.40, state-dependent penetration priors, alternative priors, CRISTAL segment-scale benchmark, same-day AMSR2 grid-scale comparison, and the δ dependence of the snow-replacement result.
 - Snow-replacement results recomputed with the CRYO2ICE snow column at δ = 0.70 (see `code/archive/R3_patch_v8_snow_fix.py`).
 - Removed: the gridded bridge and spread-attribution steps and the Western Weddell parameterisation sensitivity of v1.0, which the resubmitted manuscript no longer reports.
